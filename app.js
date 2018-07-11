@@ -3,7 +3,11 @@ const express = require('express');
 const fs = require('fs');
 
 //Database
-const database = require('./db.js');
+const pg = require('knex')({
+	client: 'pg',
+	connection: process.env.PG_CONNECTION_STRING,
+	searchPath: ['knex', 'public'],
+});
 
 //Server declarations
 const app = express();

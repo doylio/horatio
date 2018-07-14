@@ -23,6 +23,8 @@ const playNames = ['allswell', 'asyoulikeit', 'comedy_errors', 'cymbeline', 'lll
 //Main function
 Promise.all(playNames.map(addPlayToDatabase)).then(finish)
 
+
+
 function finish() {
 	console.log("\n\tData scrape complete!\n")
 	process.exit(0)

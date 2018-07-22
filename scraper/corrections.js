@@ -7,7 +7,7 @@ ERRORS IN PARSING
 	5)  Prologues counted as characters
 	6)  Character called '& C'
 	7)  Stage directions at start of scene counted as lines
-	8)  Reassign "ANTIPHOLUS" lines to "A of S" and "A of E" respectively
+	8)  Reassign "ANTIPHOLUS" lines to "A of S" and "A of E" respectively -- DONE
 */
 
 //Database
@@ -24,50 +24,25 @@ const pg = require('knex')({
 
 //Lists
 const falseLines = ["ANTIPHOLUS", "OF SYRACUSE", "OF EPHESUS", "BISHOP"]
-const charactersToAdd = [
-	char("ANTIPHOLUS OF SYRACUSE", "comedy_errors"),
-	char("ANTIPHOLUS OF EPHESUS", "comedy_errors"),
-
-]
 
 //Main Function
+
 // affectAllLines()
-// charactersToAdd.forEach(addCharacter)
-
-	//Reassign Lines
-
-
-	//Rename Characters
-	renameCharacter('1henryvi', "OF WINCHESTER", "BISHOP OF WINCHESTER")
-
+// renameCharacter('1henryvi', "OF WINCHESTER", "BISHOP OF WINCHESTER")
+// renameCharacter("comedy_errors", "OF EPHESUS", "ANTIPHOLUS OF EPHESUS")
+// renameCharacter("comedy_errors", "OF SYRACUSE", "ANTIPHOLUS OF SYRACUSE")
+// antipholusFix()
 
 async function renameCharacter(playName, currentName, newName) {
 	try {
-		let play_id = (await pg('plays').select('id').where({name: playName}))[0].id
+		let play_id = await getPlayId(playName)
+
 		let returned = await pg('characters').where({play_id, name: currentName}).update({name: newName}, "name")
 		console.log(`Renamed ${currentName} to ${await returned} in ${playName}`)
 	} catch(reason){
 		console.error(reason)
 	}
 }
-
-
-async function reassignLines(playName, currentCharId, newCharId) {
-	try {
-		let play_id = (await pg('plays').select('id').where({name: playName}))[0].id
-		pg('text')
-			.where({
-				play_id,
-				character_id: currentCharId
-			})
-			.update({
-				character_id: newCharId
-			})
-	} catch (reason) {
-		console.error(reason)
-	}
-}
-
 
 async function affectAllLines() {
 	let text
@@ -113,16 +88,29 @@ async function removeFalseLines(entry){
 }
 
 
+async function getPlayId(playName){
+	return (await pg('plays').select('id').where({name: playName}))[0].id
+}
+
+async function getCharacterId(characterName, playName) {
+	return (await pg('characters')
+				.select('characters.id')
+				.innerJoin('plays', 'plays.id', 'characters.play_id')
+				.where({'plays.name': playName, 'characters.name': characterName}))[0].id
+}
+
+
 async function addCharacter(char) {
 	const { playName, name } = char
 	try {
-		let play_id = (await pg('plays').select('id').where({name: playName}))[0].id
+		let play_id = await getPlayId(playName)
 		let returned = await pg('characters')
 				.insert({
 					play_id,
 					name
-				}, "name")
-		console.log(`Added ${await returned} to ${playName}`)
+				}, "id")
+		console.log(`Added ${name} (id: ${await returned}) to ${playName}`)
+		return returned[0]
 	} catch (reason) {
 		console.error(reason)
 	}
@@ -137,14 +125,39 @@ function char(name, playName) {
 
 async function removeUnusedCharacters(){}
 
-//TODO - reassign 3.2 to Syracuse, all others to Ephesus
 async function antipholusFix() {
 	try {
-		let play_id = //TODO - Make one call to db and store all plays in global object
+		let play_id = await getPlayId('comedy_errors')
+
+		let antipholus_char_id = await getCharacterId('ANTIPHOLUS', 'comedy_errors')
+		let aOfSyr_id = await pg('characters').select()
+								.where({name: "ANTIPHOLUS OF SYRACUSE"})
+								.orWhere({name: "OF SYRACUSE"})
+		let aOfEph_id = await pg('characters').select()
+								.where({name: "ANTIPHOLUS OF EPHESUS"})
+								.orWhere({name: "OF EPHESUS"})
+
+		//Fixes lines attributed to character named "ANTIPHOLUS"
+		let antipholus_lines = await pg('text').where({character_id: antipholus_char_id})
 		
-		pg('text').where({
-			play_id
-		})
+		for(let i = 0; i < (await antipholus_lines).length; i++) {
+			let character_id = aOfEph_id
+			let { act, scene, line_no } = antipholus_lines[i]
+			if(act === 3 && scene === 2) {
+				character_id = aOfSyr_id
+			}
+			let success = await pg('text')
+								.where({
+									play_id,
+									act,
+									scene,
+									line_no
+								})
+								.update({
+									character_id
+								}, "character_id")
+			console.log(`Changed line to character_id ${await success}`)
+		}
 	} catch(reason) {
 		console.error(reason)
 	}

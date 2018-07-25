@@ -3,12 +3,15 @@ ERRORS IN PARSING
 	1)  First half of name counted as part of previous speaker's line
 	2)  Second half of name counted as part of line
 	3)  [To HELENA] type stage directions -- DONE
-	4)  "" characters, name counted as text
-	5)  Prologues counted as characters
-	6)  Character called '& C'
+	4)  "" characters -- DONE
+	5)  Prologues counted as characters -- DONE
+	6)  Character called '& C' -- DONE
 	7)  Stage directions at start of scene counted as lines
 	8)  Reassign "ANTIPHOLUS" lines to "A of S" and "A of E" respectively -- DONE
 */
+
+//Dependancies
+const falseLines = require('./falseLines.js')
 
 //Database
 const pg = require('knex')({
@@ -22,17 +25,48 @@ const pg = require('knex')({
 	}
 });
 
-//Lists
-const falseLines = ["ANTIPHOLUS", "OF SYRACUSE", "OF EPHESUS", "BISHOP"]
+//Fixes Performed
 
-//Main Function
-
-// affectAllLines()
-// renameCharacter('1henryvi', "OF WINCHESTER", "BISHOP OF WINCHESTER")
+affectAllLines()
 // renameCharacter("comedy_errors", "OF EPHESUS", "ANTIPHOLUS OF EPHESUS")
 // renameCharacter("comedy_errors", "OF SYRACUSE", "ANTIPHOLUS OF SYRACUSE")
 // antipholusFix()
+// renameCharacter('1henryvi', "OF WINCHESTER", "BISHOP OF WINCHESTER")
+// renameCharacter("1henryvi", "OF AUVERGNE", "COUNTESS OF AUVERGNE")
+// renameCharacter("1henryvi", "PLANTAGENET", "RICHARD PLANTAGENET")
+// reassignLines("asyoulikeit", 2, 5, 35, 41, "ALL")
+// renameCharacter("henryviii", "", "PROLOGUE")
+// renameCharacter("lll", "ADRIANO DE ARMADO", "DON ADRIANO DE ARMADO")
+// renameCharacter("measure", "", "Boy")
+// renameCharacter("pericles", "", "GOWER")
+// renameCharacter("romeo_juliet", "", "PROLOGUE")
+// renameCharacter("timon", "", "TIMON")
+// renameCharacter("troilus_cressida", "", "PROLOGUE")
+// renameCharacter("1henryvi", "", "Master-Gunner")
+// editLine("1henryvi", 1, 4, 1, "Sirrah, thou know'st how Orleans is besieged,")
+// reassignLines("midsummer", 5, 1, 113, 122, "QUINCE")
+// reassignLines("midsummer", 5, 1, 131, 155, "QUINCE")
+// renameCharacter("merry_wives", "& C", "SHALLOW, PAGE, ETC")
+// renameCharacter("coriolanus", "AEdile", "Aedile")
+// reassignLines("measure", 2, 4, 39, 39, "ANGELO")
+// editLine("measure", 2, 4, 39, "As long as you or I yet he must die.")
 
+
+async function affectAllLines() {
+	let text
+	try {
+		text = await pg('text').select()
+	} catch(reason) {
+		console.error(reason)
+	}
+
+	//ALL LINES FUNCTIONS
+	text.forEach(removeSquareBrackets)
+	text.forEach(removeFalseLines)
+}
+
+
+//OTHER FUNCTIONS
 async function renameCharacter(playName, currentName, newName) {
 	try {
 		let play_id = await getPlayId(playName)
@@ -44,17 +78,18 @@ async function renameCharacter(playName, currentName, newName) {
 	}
 }
 
-async function affectAllLines() {
-	let text
+async function editLine(playName, act, scene, line_no, editedLine) {
 	try {
-		text = await pg('text').select()
+		let play_id = await getPlayId(playName)
+		let success = await pg('text')
+						.where({ play_id, act, scene, line_no })
+						.update({ line: editedLine })
+		console.log(`Edited ${await success} line in ${playName}`)
 	} catch(reason) {
 		console.error(reason)
 	}
-
-	text.forEach(removeSquareBrackets)
-	text.forEach(removeFalseLines)
 }
+
 
 async function removeSquareBrackets(entry) {
 	const squareBracketsRegEx = new RegExp("\\[.*?\\]", "g")
@@ -93,10 +128,15 @@ async function getPlayId(playName){
 }
 
 async function getCharacterId(characterName, playName) {
-	return (await pg('characters')
+	let data = await pg('characters')
 				.select('characters.id')
 				.innerJoin('plays', 'plays.id', 'characters.play_id')
-				.where({'plays.name': playName, 'characters.name': characterName}))[0].id
+				.where({'plays.name': playName, 'characters.name': characterName})
+	if(await data.length) {
+		return data[0].id
+	} else {
+		return undefined
+	}
 }
 
 
@@ -116,6 +156,7 @@ async function addCharacter(char) {
 	}
 }
 
+
 function char(name, playName) {
 	return {
 		name,
@@ -123,7 +164,25 @@ function char(name, playName) {
 	}
 }
 
-async function removeUnusedCharacters(){}
+
+async function reassignLines(playName, act, scene, first_line_no, last_line_no, characterName) {
+	try {
+		let play_id = await getPlayId(playName)
+		let character_id = await getCharacterId(characterName, playName)
+		if(await character_id === undefined) {
+			character_id = await addCharacter(char(characterName, playName))
+		}
+		let success = await pg('text')
+						.where({ play_id, act, scene })
+						.where("line_no", ">=", first_line_no)
+						.where("line_no", "<=", last_line_no)
+						.update({ character_id })
+		console.log(`Reassigned ${await success} lines to ${await characterName}`)
+	} catch(reason){
+		console.error(reason)
+	}
+}
+
 
 async function antipholusFix() {
 	try {
@@ -141,10 +200,10 @@ async function antipholusFix() {
 		let antipholus_lines = await pg('text').where({character_id: antipholus_char_id})
 		
 		for(let i = 0; i < (await antipholus_lines).length; i++) {
-			let character_id = aOfEph_id
+			let character_id = aOfEph_id[0].id
 			let { act, scene, line_no } = antipholus_lines[i]
 			if(act === 3 && scene === 2) {
-				character_id = aOfSyr_id
+				character_id = aOfSyr_id[0].id
 			}
 			let success = await pg('text')
 								.where({
@@ -162,83 +221,6 @@ async function antipholusFix() {
 		console.error(reason)
 	}
 }
-
-
-
-
-
-
-// async function firstHalfNameLost(firstHalf, secondHalf) {
-// 	const fullName = firstHalf + " " + secondHalf
-// 	try {
-// 		console.log("Retrieving lines")
-// 		let allLines = await pg
-// 			.from('characters')
-// 			.innerJoin('text', 'text.character_id', 'characters.id')
-// 			.where('characters.name', secondHalf)
-// 			.select('text.play_id', 'text.act', 'text.scene', 'text.line_no', 'text.character_id')
-
-// 		startingLines = await allLines.filter((line, i) => {
-// 			return !isNextLine(allLines[i - 1], line)
-// 		})
-
-// 		startingLines.forEach(async function(line, i) {
-// 			let { play_id, character_id, act, scene, line_no } = line
-// 			try {
-// 				let prev = await pg('text').select('line').where({
-// 					play_id,
-// 					act,
-// 					scene,
-// 					line_no: line_no - 1
-// 				})
-// 				if(firstHalf === await prev[0].line) {
-// 					let properCharId = await pg('characters').select('id').where({
-// 						play_id,
-// 						name: fullName
-// 					})
-// 					if(properCharId.length === 0) {
-// 						properCharId = (await pg('characters').insert({
-// 							play_id,
-// 							name: fullName
-// 						}, 'id'))
-// 					} else {
-// 						// properCharId = properCharId[0].id
-// 					}
-
-// 					console.log(await properCharId)
-
-// 					//Selects next line that isn't the speaker
-// 					//Used to identify the block of text
-// 					let subquery = pg('text').select('line_no').where({
-// 						play_id,
-// 						act,
-// 						scene
-// 					}).where("line_no", ">=", line_no).where("character_id", "!=", character_id).orderBy('line_no').limit(1)
-
-// 					//Update character_id
-// 					pg('text').where({
-// 						play_id,
-// 						act,
-// 						scene,
-// 					}).where("line_no", ">=", line_no).where('line_no', "<", subquery)
-// 					.update({character_id: properCharId})
-
-// 					//Remove false line
-// 					pg('text').where({
-// 						play_id,
-// 						act,
-// 						scene,
-// 						line_no: line_no - 1
-// 					}).del()
-// 				}
-// 			} catch (e) {
-// 				console.log(e)
-// 			}
-// 		})
-// 	} catch(err) {
-// 		console.log(err)
-// 	}
-// }
 
 function isNextLine(line1, line2) {
 	return !(

@@ -15,14 +15,11 @@ const pg = require('knex')({
 	}
 });
 
-//Test cases
-const playNames = ['allswell', 'asyoulikeit', 'comedy_errors', 'cymbeline', 'lll', 'measure', 'merry_wives', 'merchant', 'midsummer', 'much_ado', 'pericles', 'taming_shrew', 'tempest', 'troilus_cressida', 'twelfth_night', 'two_gentlemen', 'winters_tale', '1henryiv', '2henryiv', 'henryv', '1henryvi', '2henryvi', '3henryvi', 'henryviii', 'john', 'richardii', 'richardiii', 'cleopatra', 'coriolanus', 'hamlet', 'julius_caesar', 'lear', 'macbeth', 'othello', 'romeo_juliet', 'timon', 'titus']
-
-
+//Lists
+const playNames = require('./playNames')
 
 //Main function
 Promise.all(playNames.map(addPlayToDatabase)).then(finish)
-
 
 
 function finish() {
@@ -106,9 +103,20 @@ async function scrapeData(title) {
 		const $ = await rp(options)
 		$('body').children().each(function(element, i) {
 			if($(this).is('blockquote') && !$(this).children().is('i')) {
-				const character = $(this).prev().children('b').text()
+				let character = $(this).prev().children('b').text()
 				$(this).children('a').each(function(elem) {
-					const line = $(this).text()
+					let line = $(this).text()
+					// These are errors that appears in this website and must be fixed in the scraping
+					const charNameNotSplitFromLine = new RegExp(".+\t.+")
+					const squareBracketsStageDirections = new RegExp("\\[.*?\\]\t")
+					if(squareBracketsStageDirections.test(line)) {
+						line = line.replace(squareBracketsStageDirections, "")
+					}
+					if(charNameNotSplitFromLine.test(line)) {
+						character = line.split('\t')[0]
+						line = line.split('\t')[1]
+					}
+
 					const lookupData = $(this).attr('name').split('.')
 					const [ act, scene, line_no ] = lookupData
 					text.push(new Line(Number(act), Number(scene), Number(line_no), character, line))

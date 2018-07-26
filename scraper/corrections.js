@@ -1,13 +1,18 @@
 /*
 ERRORS IN PARSING
-	1)  First half of name counted as part of previous speaker's line
-	2)  Second half of name counted as part of line
+	1)  Unused characters
+	2)  Half of name counted as part of line
 	3)  [To HELENA] type stage directions -- DONE
 	4)  "" characters -- DONE
 	5)  Prologues counted as characters -- DONE
-	6)  Character called '& C' -- DONE
+	6)  Unconnected incorrect characters
 	7)  Stage directions at start of scene counted as lines
 	8)  Reassign "ANTIPHOLUS" lines to "A of S" and "A of E" respectively -- DONE
+	9)  Empty lines
+	10) Lines where the entire name is the beginning of the line -- DONE
+	11) Identical Characters or Characters who are identical with extra spaces or tabs
+
+CONTINUE THROUGH CHARACTERS FROM "SNUG"
 */
 
 //Dependancies
@@ -38,7 +43,7 @@ affectAllLines()
 // renameCharacter("henryviii", "", "PROLOGUE")
 // renameCharacter("lll", "ADRIANO DE ARMADO", "DON ADRIANO DE ARMADO")
 // renameCharacter("measure", "", "Boy")
-// renameCharacter("pericles", "", "GOWER")
+// reassignLines("pericles", 1, 0, 1, 42, "GOWER")
 // renameCharacter("romeo_juliet", "", "PROLOGUE")
 // renameCharacter("timon", "", "TIMON")
 // renameCharacter("troilus_cressida", "", "PROLOGUE")
@@ -50,6 +55,48 @@ affectAllLines()
 // renameCharacter("coriolanus", "AEdile", "Aedile")
 // reassignLines("measure", 2, 4, 39, 39, "ANGELO")
 // editLine("measure", 2, 4, 39, "As long as you or I yet he must die.")
+// reassignLines("hamlet", 4, 2, 2, 2, "GUILDENSTERN")
+// reassignLines("lll", 5, 2, 418, 437, "BIRON")
+// editLine("lll", 5, 2, 418, "Here stand I lady, dart thy skill at me;")
+// reassignLines("taming_shrew", 3, 2, 221, 223, "KATHARINA")
+// reassignLines("merchant", 3, 5, 84, 85, "LORENZO")
+// editLine("asyoulikeit", 4, 3, 140, "'Twas I; but 'tis not I. I do not shame")
+// reassignLines("asyoulikeit", 4, 3, 140, 142, "OLIVER")
+// editLine("lear", 1, 2, 55, "brother,	EDGAR.'")
+// reassignLines("lear", 1, 2, 55, 60, "GLOUCESTER")
+// editLine("1henryiv", 5, 4, 45, "Cheerly, my lord how fares your grace?")
+// reassignLines("1henryiv", 5, 4, 45, 47, "PRINCE HENRY")
+// editLine("measure", 4, 3, 49, "Friar, not I. I have been drinking hard all night,")
+// reassignLines("measure", 4, 3, 49, 52, "BARNARDINE")
+// editLine("measure", 4, 4, 870, "is too soft for him, say I draw our throne into a")
+// reassignLines("measure", 4, 4, 870, 871, "AUTOLYCUS")
+// renameCharacter("timon", "Jeweller:", "Jeweller")
+// mergeCharIntoChar("2henryiv", "KING HENRY V", "PRINCE HENRY")
+// editLine("tempest", 3, 2, 38, "Marry, will I kneel and repeat it; I will stand,")
+// reassignLines("tempest", 3, 2, 38, 39, "STEPHANO")
+// editLine("lll", 5, 2, 941, "Mocks married men; for thus sings he, Cuckoo;")
+// editLine("lll", 5, 2, 949, "Mocks married men; for thus sings he, Cuckoo;")
+// reassignLines("lll", 5, 2, 941, 968, "DON ADRIANO DE ARMADO")
+// editLine("lear", 2, 1, 9, "Not I pray you, what are they?")
+// reassignLines("lear", 2, 1, 9, 9, "EDMUND")
+// editLine("othello", 1, 1, 99, "Not I, what are you?")
+// reassignLines("othello", 1, 1, 99, 99, "BRABANTIO")
+// editLine("othello", 1, 2, 33, "Not I, I must be found:")
+// reassignLines("othello", 1, 2, 33, 35, "OTHELLO")
+// editLine("2henryiv", 2, 4, 144, "Not I, I tell thee what, Corporal Bardolph, I could")
+// reassignLines("2henryiv", 2, 4, 144, 145, "PISTOL")
+// renameCharacter("richardiii", "of BUCKINGHAM", "Ghost of BUCKINGHAM")
+// renameCharacter("richardiii", "of young Princes", "Ghosts of young Princes")
+// renameCharacter("richardiii", "of King Henry VI", "Ghost of King Henry VI")
+// renameCharacter("richardiii", "of Prince Edward", "Ghost of Prince Edward")
+// renameCharacter("henryviii", "Old Lady:", "Old Lady")
+// renameCharacter("cymbeline", "Posthumus Leonatus", "POSTHUMUS LEONATUS")
+// mergeCharIntoChar("3henryvi", "PRINCE", "PRINCE EDWARD")
+// editLine("asyoulikeit", 3, 3, 63, "Proceed, proceed, I'll give her.")
+// reassignLines("asyoulikeit", 3, 3, 63, 63, "JAQUES")
+// mergeCharIntoChar("winters_tale", "Shepard", "Shepherd")
+// editLine("henryv", 2, 3, 17, "sir John!' quoth I 'what, man! be o' good")
+// reassignLines("henryv", 2, 3, 17, 26, "Hostess")
 
 
 async function affectAllLines() {
@@ -178,6 +225,20 @@ async function reassignLines(playName, act, scene, first_line_no, last_line_no, 
 						.where("line_no", "<=", last_line_no)
 						.update({ character_id })
 		console.log(`Reassigned ${await success} lines to ${await characterName}`)
+	} catch(reason){
+		console.error(reason)
+	}
+}
+
+async function mergeCharIntoChar(playName, fromChar, toChar) {
+	try {
+		const from_id = await getCharacterId(fromChar, playName)
+		const to_id = await getCharacterId(toChar, playName)
+
+		const success = await pg('text')
+							.where({character_id: from_id})
+							.update({character_id: to_id})
+		console.log(`Reassigned ${await success} lines to ${toChar}`)
 	} catch(reason){
 		console.error(reason)
 	}

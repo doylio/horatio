@@ -22,5 +22,10 @@ module.exports = [
 "a trunk in one corner of it.",
 "Varro's",
 "SCENE I:",
+"Two Sentinels on guard.",
+"soft music playing; Gentleman, and others attending.",
+"Ghost",
+"Eastcheap. The Boar's-Head Tavern.",
+"An ante-chamber adjoining Imogen's apartments.",
 
 ]

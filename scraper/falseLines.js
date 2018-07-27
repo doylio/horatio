@@ -27,5 +27,5 @@ module.exports = [
 "Ghost",
 "Eastcheap. The Boar's-Head Tavern.",
 "An ante-chamber adjoining Imogen's apartments.",
-
+"DUMB SHOW.",
 ]

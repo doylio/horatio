@@ -1,6 +1,6 @@
 /*
 ERRORS IN PARSING
-	1)  Unused characters
+	1)  Unused characters -- It's ok
 	2)  Half of name counted as part of line -- DONE
 	3)  [To HELENA] type stage directions -- DONE
 	4)  "" characters -- DONE
@@ -8,7 +8,7 @@ ERRORS IN PARSING
 	6)  Unconnected incorrect characters -- DONE
 	7)  Stage directions at start of scene counted as lines -- DONE
 	8)  Reassign "ANTIPHOLUS" lines to "A of S" and "A of E" respectively -- DONE
-	9)  Empty lines
+	9)  Empty lines -- DONE
 	10) Lines where the entire name is the beginning of the line -- DONE
 	11) Identical Characters or Characters who are identical with extra spaces or tabs
 	12) Capitalize all characters
@@ -30,11 +30,7 @@ const pg = require('knex')({
 	}
 });
 
-
-// fillInGaps()
-
-
-Promise.all([
+const correctionFunctions = [
 	affectAllLines(),
 	periclesFix(),
 	antipholusFix(),
@@ -122,90 +118,59 @@ Promise.all([
 	reassignLines("richardii", 5, 6, 5, 5, "HENRY BOLINGBROKE"),
 	editLine("measure", 4, 3, 172, "Yes, marry, did I but I was fain to forswear it;"),
 	reassignLines("measure", 4, 3, 172, 173, "LUCIO"),
-
-	// renumberLine(122, 5, 1, 3, 2)
-	// pushLinesTogether(122, 2, 4)
-
-]).then(finish)
+]
 
 
-// fillGapsRecursive(122, 5, 1, 1, 321, 0)
-// moveUpLines(122, 5, 1, 3, 321)
+//Main Function
+Promise.all(correctionFunctions)
+.then(fillInGaps)
+.then(finish)
+
+
 
 function finish() {
-	console.log("\n\tCorrections to data complete!\n")
+	console.log("\n\tCorrections to data complete\n")
 	process.exit(0)
 }
 
-//This isn't very efficient, basically a bubble sort, but the recursive solution I worked on had foreign key errors on postgresql
 async function pushLinesTogether(play_id, act, scene) {
 	try {
 		let sceneText = await pg('text').where({play_id, act, scene}).orderBy('line_no')
-		for(let i = 1; i <= sceneText.length; i++) {
-			let success = await renumberLine(play_id, act, scene, sceneText[i].line_no, i)
-		}
-		let lastLine = await renumberLine(play_id, act, scene, sceneText[sceneText.length - 1].line_no, sceneText.length)
+		await renumberLine(sceneText, 0)
 	} catch(reason) {
 		console.error(reason)
 	}
 }
 
-async function renumberLine(play_id, act, scene, line_no, new_no) {
-	try {
-		await pg('text')
-			.where({play_id, act, scene, line_no})
-			.update({line_no: new_no})
-	} catch(reason) {
-		console.log(reason)
+async function renumberLine(linesArray, index) {
+	if(index < linesArray.length) {
+		try {
+			let { play_id, act, scene, line_no } = linesArray[index]
+			let returned = await pg('text').where({play_id, act, scene, line_no}).update({line_no: index + 1}, "line_no")
+			await renumberLine(linesArray, returned[0])
+		} catch(reason) {
+			console.error(reason)
+		}
 	}
 }
 
-
+//This isn't efficient, but it's the only way to move all these lines without getting primary key errors
 async function fillInGaps() {
 	try{
 		let text = await pg('text')
 						.select('play_id', 'act', 'scene')
-						.count('line as line_count')
 						.groupBy('play_id', 'act', 'scene')
-		text.forEach()
-	} catch(reason) {
-		console.error(reason)
-	}
-}
-
-async function fillGapsRecursive(play_id, act, scene, line_no, lines_in_scene, line_counter){
-	try {
-		if(line_no < 2) {
-			fillGapsRecursive(play_id, act, scene, line_no + 1, lines_in_scene, line_counter + 1)
-		}
-		else if(line_counter < lines_in_scene) {
-			let prevLine = await pg('text').where({ play_id, act, scene, line_no: line_no - 1 })
-			if((await prevLine).length) {
-				fillGapsRecursive(play_id, act, scene, line_no + 1, lines_in_scene, line_counter + 1)
-			} else {
-				//FIX THIS -- fillGaps() must wait for moveUp() to finish
-				moveUpLines(play_id, act, scene, line_no, lines_in_scene)
-				.then(() => {
-					fillGapsRecursive(play_id, act, scene, line_no, lines_in_scene, line_counter)
-				})
-			}
-		} else {
-			return
+						.orderBy('play_id', 'act', 'scene')
+		for(let i = 0; i < text.length; i++){
+			let { play_id, act, scene } = text[i]
+			let success = await pushLinesTogether(play_id, act, scene)
+			console.log(`Indexed lines in play ${play_id}, act ${act}, scene ${scene}.  Returned: [${success}]`)
 		}
 	} catch(reason) {
 		console.error(reason)
 	}
 }
 
-
-function moveUpLines(play_id, act, scene, start_line, last_line) {
-	if(line_no <= last_line) {
-		pg('text').where({ play_id, act, scene, line_no}).update({line_no: line_no - 1})
-		.then(() => {
-			moveUpLines(play_id, act, scene, line_no + 1, last_line)
-		})
-	}
-}
 
 async function affectAllLines() {
 	let text
@@ -247,9 +212,15 @@ async function periclesFix() {
 		let ret3 = await pg('text')
 								.where({ play_id, act: 5, scene: 6})
 								.update({scene: 0})
+		let ret4 = await pg('text')
+								.where({ play_id, act: 2, scene: 4})
+								.where('line_no', '<', 59)
+								.update({scene: 0})
+
 		console.log(`Moved ${await ret1} misnamed lines in from scene 3.5 to 3.1 in pericles`)
 		console.log(`Moved ${await ret2} misnamed lines in from scene 3.5 to 3.0 in pericles`)
 		console.log(`Moved ${await ret3} misnamed lines in from scene 5.6 to 5.0 in pericles`)
+		console.log(`Moved ${await ret4} misnamed lines in from scene 2.4 to 2.0 in pericles`)
 	} catch(reason) {
 		console.error(reason)
 	}

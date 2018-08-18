@@ -28,4 +28,5 @@ module.exports = [
 "Eastcheap. The Boar's-Head Tavern.",
 "An ante-chamber adjoining Imogen's apartments.",
 "DUMB SHOW.",
+"a light burning.",
 ]

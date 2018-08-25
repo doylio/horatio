@@ -1,6 +1,6 @@
 /*
 ERRORS IN PARSING
-	1)  Unused characters -- It's ok
+	1)  Unused characters -- DONE
 	2)  Half of name counted as part of line -- DONE
 	3)  [To HELENA] type stage directions -- DONE
 	4)  "" characters -- DONE
@@ -13,6 +13,7 @@ ERRORS IN PARSING
 	11) Identical Characters or Characters who are identical with extra spaces or tabs
 	12) Capitalize all characters
 	13) Fix scenes 3.6 and 5.6 in Pericles -- DONE
+	14) Lines with spaces or tabs at the start or end -- DONE
 */
 
 //Dependancies
@@ -30,101 +31,106 @@ const pg = require('knex')({
 	}
 });
 
-const correctionFunctions = [
-	affectAllLines(),
-	periclesFix(),
-	antipholusFix(),
-	renameCharacter("comedy_errors", "OF EPHESUS", "ANTIPHOLUS OF EPHESUS"),
-	renameCharacter("comedy_errors", "OF SYRACUSE", "ANTIPHOLUS OF SYRACUSE"),
-	renameCharacter('1henryvi', "OF WINCHESTER", "BISHOP OF WINCHESTER"),
-	renameCharacter("1henryvi", "OF AUVERGNE", "COUNTESS OF AUVERGNE"),
-	renameCharacter("1henryvi", "PLANTAGENET", "RICHARD PLANTAGENET"),
-	reassignLines("asyoulikeit", 2, 5, 35, 41, "ALL"),
-	renameCharacter("henryviii", "", "PROLOGUE"),
-	renameCharacter("lll", "ADRIANO DE ARMADO", "DON ADRIANO DE ARMADO"),
-	renameCharacter("measure", "", "Boy"),
-	reassignLines("pericles", 1, 0, 1, 42, "GOWER"),
-	renameCharacter("romeo_juliet", "", "PROLOGUE"),
-	renameCharacter("timon", "", "TIMON"),
-	renameCharacter("troilus_cressida", "", "PROLOGUE"),
-	renameCharacter("1henryvi", "", "Master-Gunner"),
-	editLine("1henryvi", 1, 4, 1, "Sirrah, thou know'st how Orleans is besieged,"),
-	reassignLines("midsummer", 5, 1, 113, 122, "QUINCE"),
-	reassignLines("midsummer", 5, 1, 131, 155, "QUINCE"),
-	renameCharacter("merry_wives", "& C", "SHALLOW, PAGE, ETC"),
-	renameCharacter("coriolanus", "AEdile", "Aedile"),
-	reassignLines("measure", 2, 4, 39, 39, "ANGELO"),
-	editLine("measure", 2, 4, 39, "As long as you or I yet he must die."),
-	reassignLines("hamlet", 4, 2, 2, 2, "GUILDENSTERN"),
-	reassignLines("lll", 5, 2, 418, 437, "BIRON"),
-	editLine("lll", 5, 2, 418, "Here stand I lady, dart thy skill at me;"),
-	reassignLines("taming_shrew", 3, 2, 221, 223, "KATHARINA"),
-	reassignLines("merchant", 3, 5, 84, 85, "LORENZO"),
-	editLine("asyoulikeit", 4, 3, 140, "'Twas I; but 'tis not I. I do not shame"),
-	reassignLines("asyoulikeit", 4, 3, 140, 142, "OLIVER"),
-	editLine("lear", 1, 2, 55, "brother,	EDGAR.'"),
-	reassignLines("lear", 1, 2, 55, 60, "GLOUCESTER"),
-	editLine("1henryiv", 5, 4, 45, "Cheerly, my lord how fares your grace?"),
-	reassignLines("1henryiv", 5, 4, 45, 47, "PRINCE HENRY"),
-	editLine("measure", 4, 3, 49, "Friar, not I. I have been drinking hard all night,"),
-	reassignLines("measure", 4, 3, 49, 52, "BARNARDINE"),
-	editLine("measure", 4, 4, 870, "is too soft for him, say I draw our throne into a"),
-	reassignLines("measure", 4, 4, 870, 871, "AUTOLYCUS"),
-	renameCharacter("timon", "Jeweller:", "Jeweller"),
-	mergeCharIntoChar("2henryiv", "KING HENRY V", "PRINCE HENRY"),
-	editLine("tempest", 3, 2, 38, "Marry, will I kneel and repeat it; I will stand,"),
-	reassignLines("tempest", 3, 2, 38, 39, "STEPHANO"),
-	editLine("lll", 5, 2, 941, "Mocks married men; for thus sings he, Cuckoo;"),
-	editLine("lll", 5, 2, 949, "Mocks married men; for thus sings he, Cuckoo;"),
-	reassignLines("lll", 5, 2, 941, 968, "DON ADRIANO DE ARMADO"),
-	editLine("lear", 2, 1, 9, "Not I pray you, what are they?"),
-	reassignLines("lear", 2, 1, 9, 9, "EDMUND"),
-	editLine("othello", 1, 1, 99, "Not I, what are you?"),
-	reassignLines("othello", 1, 1, 99, 99, "BRABANTIO"),
-	editLine("othello", 1, 2, 33, "Not I, I must be found:"),
-	reassignLines("othello", 1, 2, 33, 35, "OTHELLO"),
-	editLine("2henryiv", 2, 4, 144, "Not I, I tell thee what, Corporal Bardolph, I could"),
-	reassignLines("2henryiv", 2, 4, 144, 145, "PISTOL"),
-	renameCharacter("richardiii", "of BUCKINGHAM", "Ghost of BUCKINGHAM"),
-	renameCharacter("richardiii", "of young Princes", "Ghosts of young Princes"),
-	renameCharacter("richardiii", "of King Henry VI", "Ghost of King Henry VI"),
-	renameCharacter("richardiii", "of Prince Edward", "Ghost of Prince Edward"),
-	renameCharacter("henryviii", "Old Lady:", "Old Lady"),
-	renameCharacter("cymbeline", "Posthumus Leonatus", "POSTHUMUS LEONATUS"),
-	mergeCharIntoChar("3henryvi", "PRINCE", "PRINCE EDWARD"),
-	editLine("asyoulikeit", 3, 3, 63, "Proceed, proceed, I'll give her."),
-	reassignLines("asyoulikeit", 3, 3, 63, 63, "JAQUES"),
-	mergeCharIntoChar("winters_tale", "Shepard", "Shepherd"),
-	editLine("henryv", 2, 3, 17, "sir John!' quoth I 'what, man! be o' good"),
-	reassignLines("henryv", 2, 3, 17, 26, "Hostess"),
-	editLine("much_ado", 3, 2, 16, "So say I methinks you are sadder."),
-	reassignLines("much_ado", 3, 2, 16, 16, "LEONATO"),
-	editLine("cymbeline", 4, 4, 57, "So Say I amen."),
-	reassignLines("cymbeline", 4, 4, 57, 57, "ARVIRAGUS"),
-	editLine("merry_wives", 2, 1, 84, "So will I if he come under my hatches, I'll never"),
-	reassignLines("merry_wives", 2, 1, 84, 88, "MISTRESS PAGE"),
-	editLine("julius_caesar", 1, 1, 63, "This way will I disrobe the images,"),
-	reassignLines("julius_caesar", 1, 1, 63, 64, "FLAVIUS"),
-	editLine("asyoulikeit", 5, 4, 191, "To see no pastime I what you would have"),
-	reassignLines("asyoulikeit", 5, 4, 191, 192, "JAQUES"),
-	editLine("allswell", 3, 2, 24, "to you.  Your unfortunate son,"),
-	editLine("allswell", 3, 2, 25, "Bertram."),
-	reassignLines("allswell", 3, 2, 24, 30, "COUNTESS"),
-	editLine("titus", 5, 1, 157, "Welcome, AEmilius what's the news from Rome?"),
-	reassignLines("titus", 5, 1, 157, 157, "LUCIUS"),
-	editLine("richardii", 3, 2, 63, "Welcome, my lord, how far off lies your power?"),
-	reassignLines("richardii", 3, 2, 63, 63, "KING RICHARD II"),
-	editLine("richardii", 5, 6, 5, "Welcome, my lord, what is the news?"),
-	reassignLines("richardii", 5, 6, 5, 5, "HENRY BOLINGBROKE"),
-	editLine("measure", 4, 3, 172, "Yes, marry, did I but I was fain to forswear it;"),
-	reassignLines("measure", 4, 3, 172, 173, "LUCIO"),
-]
+// const correctionFunctions = [
+// 	affectAllLines(),
+// 	periclesFix(),
+// 	antipholusFix(),
+// 	renameCharacter("comedy_errors", "OF EPHESUS", "ANTIPHOLUS OF EPHESUS"),
+// 	renameCharacter("comedy_errors", "OF SYRACUSE", "ANTIPHOLUS OF SYRACUSE"),
+// 	renameCharacter('1henryvi', "OF WINCHESTER", "BISHOP OF WINCHESTER"),
+// 	renameCharacter("1henryvi", "OF AUVERGNE", "COUNTESS OF AUVERGNE"),
+// 	renameCharacter("1henryvi", "PLANTAGENET", "RICHARD PLANTAGENET"),
+// 	reassignLines("asyoulikeit", 2, 5, 35, 41, "ALL"),
+// 	renameCharacter("henryviii", "", "PROLOGUE"),
+// 	renameCharacter("lll", "ADRIANO DE ARMADO", "DON ADRIANO DE ARMADO"),
+// 	renameCharacter("measure", "", "Boy"),
+// 	reassignLines("pericles", 1, 0, 1, 42, "GOWER"),
+// 	renameCharacter("romeo_juliet", "", "PROLOGUE"),
+// 	reassignLines("timon", 4, 3, 1, 48, "TIMON"),
+// 	renameCharacter("troilus_cressida", "", "PROLOGUE"),
+// 	renameCharacter("1henryvi", "", "Master-Gunner"),
+// 	editLine("1henryvi", 1, 4, 1, "Sirrah, thou know'st how Orleans is besieged,"),
+// 	reassignLines("midsummer", 5, 1, 113, 122, "QUINCE"),
+// 	reassignLines("midsummer", 5, 1, 131, 155, "QUINCE"),
+// 	renameCharacter("merry_wives", "& C", "SHALLOW, PAGE, ETC"),
+// 	renameCharacter("coriolanus", "AEdile", "Aedile"),
+// 	reassignLines("measure", 2, 4, 39, 39, "ANGELO"),
+// 	editLine("measure", 2, 4, 39, "As long as you or I yet he must die."),
+// 	reassignLines("hamlet", 4, 2, 2, 2, "GUILDENSTERN"),
+// 	reassignLines("lll", 5, 2, 418, 437, "BIRON"),
+// 	editLine("lll", 5, 2, 418, "Here stand I lady, dart thy skill at me;"),
+// 	reassignLines("taming_shrew", 3, 2, 221, 223, "KATHARINA"),
+// 	reassignLines("merchant", 3, 5, 84, 85, "LORENZO"),
+// 	editLine("asyoulikeit", 4, 3, 140, "'Twas I; but 'tis not I. I do not shame"),
+// 	reassignLines("asyoulikeit", 4, 3, 140, 142, "OLIVER"),
+// 	editLine("lear", 1, 2, 55, "brother,	EDGAR.'"),
+// 	reassignLines("lear", 1, 2, 55, 60, "GLOUCESTER"),
+// 	editLine("1henryiv", 5, 4, 45, "Cheerly, my lord how fares your grace?"),
+// 	reassignLines("1henryiv", 5, 4, 45, 47, "PRINCE HENRY"),
+// 	editLine("measure", 4, 3, 49, "Friar, not I. I have been drinking hard all night,"),
+// 	reassignLines("measure", 4, 3, 49, 52, "BARNARDINE"),
+// 	editLine("measure", 4, 4, 870, "is too soft for him, say I draw our throne into a"),
+// 	reassignLines("measure", 4, 4, 870, 871, "AUTOLYCUS"),
+// 	reassignLines('timon', 1, 1, 16, 16, "Jeweller"),
+// 	reassignLines('timon', 1, 1, 18, 18, "Jeweller"),
+// 	reassignLines('timon', 1, 1, 207, 207, "Jeweller"),
+// 	reassignLines('timon', 1, 1, 216, 216, "Jeweller"),
+// 	mergeCharIntoChar("2henryiv", "KING HENRY V", "PRINCE HENRY"),
+// 	editLine("tempest", 3, 2, 38, "Marry, will I kneel and repeat it; I will stand,"),
+// 	reassignLines("tempest", 3, 2, 38, 39, "STEPHANO"),
+// 	editLine("lll", 5, 2, 941, "Mocks married men; for thus sings he, Cuckoo;"),
+// 	editLine("lll", 5, 2, 949, "Mocks married men; for thus sings he, Cuckoo;"),
+// 	reassignLines("lll", 5, 2, 941, 968, "DON ADRIANO DE ARMADO"),
+// 	editLine("lear", 2, 1, 9, "Not I pray you, what are they?"),
+// 	reassignLines("lear", 2, 1, 9, 9, "EDMUND"),
+// 	editLine("othello", 1, 1, 99, "Not I, what are you?"),
+// 	reassignLines("othello", 1, 1, 99, 99, "BRABANTIO"),
+// 	editLine("othello", 1, 2, 33, "Not I, I must be found:"),
+// 	reassignLines("othello", 1, 2, 33, 35, "OTHELLO"),
+// 	editLine("2henryiv", 2, 4, 144, "Not I, I tell thee what, Corporal Bardolph, I could"),
+// 	reassignLines("2henryiv", 2, 4, 144, 145, "PISTOL"),
+// 	renameCharacter("richardiii", "of BUCKINGHAM", "Ghost of BUCKINGHAM"),
+// 	renameCharacter("richardiii", "of young Princes", "Ghosts of young Princes"),
+// 	renameCharacter("richardiii", "of King Henry VI", "Ghost of King Henry VI"),
+// 	renameCharacter("richardiii", "of Prince Edward", "Ghost of Prince Edward"),
+// 	reassignLines("henryviii", 2, 3, 44, 47, "Old Lady"),
+// 	reassignLines('cymbeline', 5, 4, 125, 152, "POSTHUMUS LEONATUS"),
+// 	mergeCharIntoChar("3henryvi", "PRINCE", "PRINCE EDWARD"),
+// 	editLine("asyoulikeit", 3, 3, 63, "Proceed, proceed, I'll give her."),
+// 	reassignLines("asyoulikeit", 3, 3, 63, 63, "JAQUES"),
+// 	mergeCharIntoChar("winters_tale", "Shepard", "Shepherd"),
+// 	editLine("henryv", 2, 3, 17, "sir John!' quoth I 'what, man! be o' good"),
+// 	reassignLines("henryv", 2, 3, 17, 26, "Hostess"),
+// 	editLine("much_ado", 3, 2, 16, "So say I methinks you are sadder."),
+// 	reassignLines("much_ado", 3, 2, 16, 16, "LEONATO"),
+// 	editLine("cymbeline", 4, 4, 57, "So Say I amen."),
+// 	reassignLines("cymbeline", 4, 4, 57, 57, "ARVIRAGUS"),
+// 	editLine("merry_wives", 2, 1, 84, "So will I if he come under my hatches, I'll never"),
+// 	reassignLines("merry_wives", 2, 1, 84, 88, "MISTRESS PAGE"),
+// 	editLine("julius_caesar", 1, 1, 63, "This way will I disrobe the images,"),
+// 	reassignLines("julius_caesar", 1, 1, 63, 64, "FLAVIUS"),
+// 	editLine("asyoulikeit", 5, 4, 191, "To see no pastime I what you would have"),
+// 	reassignLines("asyoulikeit", 5, 4, 191, 192, "JAQUES"),
+// 	editLine("allswell", 3, 2, 24, "to you.  Your unfortunate son,"),
+// 	editLine("allswell", 3, 2, 25, "Bertram."),
+// 	reassignLines("allswell", 3, 2, 24, 30, "COUNTESS"),
+// 	editLine("titus", 5, 1, 157, "Welcome, AEmilius what's the news from Rome?"),
+// 	reassignLines("titus", 5, 1, 157, 157, "LUCIUS"),
+// 	editLine("richardii", 3, 2, 63, "Welcome, my lord, how far off lies your power?"),
+// 	reassignLines("richardii", 3, 2, 63, 63, "KING RICHARD II"),
+// 	editLine("richardii", 5, 6, 5, "Welcome, my lord, what is the news?"),
+// 	reassignLines("richardii", 5, 6, 5, 5, "HENRY BOLINGBROKE"),
+// 	editLine("measure", 4, 3, 172, "Yes, marry, did I but I was fain to forswear it;"),
+// 	reassignLines("measure", 4, 3, 172, 173, "LUCIO"),
+
+// ]
 
 
 //Main Function
-Promise.all(correctionFunctions)
-.then(fillInGaps)
-.then(finish)
+// Promise.all(correctionFunctions)
+// .then(fillInGaps)
+// .then(deleteUnusedCharacters)
+// .then(finish)
 
 
 
@@ -132,6 +138,57 @@ function finish() {
 	console.log("\n\tCorrections to data complete\n")
 	process.exit(0)
 }
+
+
+// async function editAllCharacters() {
+// 	try {
+// 		let charArray = await pg('characters').select()
+// 	} catch(reason) {
+// 		console.error(reason)
+// 	}
+// }
+
+async function deleteUnusedCharacters(){
+	try {
+		let charList = await pg('characters')
+			.select('characters.id')
+			.count('text.line as line_count')
+			.leftJoin('text', 'text.character_id', 'characters.id')
+			.groupBy('characters.id')
+		for(let i = 0; i < charList.length; i++) {
+			if(charList[i].line_count < 1) {
+				let success = await pg('characters').where({id: charList[i].id}).del()
+				console.log(`Deleted ${success} unused characters`)
+			}
+		}
+	} catch(reason) {
+
+	}
+}
+
+
+async function removeSpacesInLine(entry) {
+	const whiteSpaceChars = [' ', '\t', '	']
+	let { line } = entry
+	if(whiteSpaceChars.includes(line[0]) || whiteSpaceChars.includes(line[line.length - 1])) {
+		while(whiteSpaceChars.includes(line[0])) {
+			line = line.slice(1)
+		}
+		while(whiteSpaceChars.includes(line[line.length - 1])) {
+			line = line.slice(0, -1)
+		}
+		const {play_id, act, scene, line_no} = entry
+		try {
+			let returned = await pg('text')
+						.where({play_id, act, scene, line_no})
+						.update({line: line}, "line")
+			console.log(`Removed white space in line: ${await returned}`)
+		} catch(reason) {
+			console.error(reason)
+		}
+	}
+}
+
 
 async function pushLinesTogether(play_id, act, scene) {
 	try {
@@ -183,6 +240,7 @@ async function affectAllLines() {
 	//ALL LINES FUNCTIONS
 	text.forEach(removeSquareBrackets)
 	text.forEach(removeFalseLines)
+	text.forEach(removeSpacesInLine)
 }
 
 

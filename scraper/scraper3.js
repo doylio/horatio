@@ -91,9 +91,9 @@ function Line(act, scene, line_no, character, line){
 
 //Scrapes from full play data
 async function scrapeData(title) {
-	console.log(`${title}: scraping data`)
+	console.log(`Scraping data...`)
 	const options = {
-		uri: `https://www.opensourceshakespeare.org/views/plays/play_view.php?WorkID=allswell&Scope=entire&pleasewait=1&msg=pl`,
+		uri: `http://www.gutenberg.org/files/100/100-h/100-h.htm#link2HCH0002`,
 		transform: function (body) {
 			return cheerio.load(body)
 		}
@@ -103,22 +103,15 @@ async function scrapeData(title) {
 		//Parses each line into Line object, then adds to text array
 		const text = []
 		const $ = await rp(options)
-		$('#container').children('div[align="center"]').first().children('div').children('a')  .last()/*Take this out later*/  
-			.each((i, elem) => {
-				let [act, scene] = $(elem).attr('id').split(',')
-				act = Number(act.slice(1))
-				scene = Number(scene.slice(1))
-				let line_no = 1
-				$(elem).next().next().next().next().children().children().children().children().children().each((index, el) => {
-					if($(el).is('p')) {
-						console.log($(el).text())
-					} else if($(el).is('ul')) {
-
-					}
-				})
-				
-			})
-		
+		$('body').children('h1').each((i, el) => {
+			if(i > 1 && i < 40) {
+				while(!(/ACT \w+\.\s+SCENE \w+/).test($(el).text())) {
+					el = $(el).next()
+				}
+				console.log($(el).text())
+				console.log('\n')
+			} 
+		}) 
 
 	} catch (reason) {
 		logError(reason)

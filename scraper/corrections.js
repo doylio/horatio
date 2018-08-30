@@ -10,8 +10,8 @@ ERRORS IN PARSING
 	8)  Reassign "ANTIPHOLUS" lines to "A of S" and "A of E" respectively -- DONE
 	9)  Empty lines -- DONE
 	10) Lines where the entire name is the beginning of the line -- DONE
-	11) Identical Characters or Characters who are identical with extra spaces or tabs
-	12) Capitalize all characters
+	11) Identical Characters or Characters who are identical with extra spaces or tabs -- DONE
+	12) Capitalize all characters -- DONE
 	13) Fix scenes 3.6 and 5.6 in Pericles -- DONE
 	14) Lines with spaces or tabs at the start or end -- DONE
 */
@@ -122,16 +122,19 @@ const pg = require('knex')({
 // 	reassignLines("richardii", 5, 6, 5, 5, "HENRY BOLINGBROKE"),
 // 	editLine("measure", 4, 3, 172, "Yes, marry, did I but I was fain to forswear it;"),
 // 	reassignLines("measure", 4, 3, 172, 173, "LUCIO"),
-
+//	reassignLines("1henryvi", 5, 3, 139, 144, "SUFFOLK"),
+//	reassignLines("richardiii", 1, 4, 152, 152, "Second Murderer"),
 // ]
 
 
 //Main Function
 // Promise.all(correctionFunctions)
 // .then(fillInGaps)
+// .then(removeSpacesInCharNames)
+// .then(capitalizeAllCharacters)
+// .then(allPlays)
 // .then(deleteUnusedCharacters)
 // .then(finish)
-
 
 
 function finish() {
@@ -140,13 +143,30 @@ function finish() {
 }
 
 
-// async function editAllCharacters() {
-// 	try {
-// 		let charArray = await pg('characters').select()
-// 	} catch(reason) {
-// 		console.error(reason)
-// 	}
-// }
+async function capitalizeAllCharacters() {
+	try {
+		const charList = await pg('characters').select()
+		charList.forEach(char => {
+			let newName = char.name.toUpperCase()
+			pg('characters').where({id: char.id}).update({name: newName})
+				.catch(err => console.error(err))
+		})
+	} catch(reason) {
+		console.error(reason)
+	}
+}
+
+async function allPlays() {
+	try {
+		const playList = await pg('plays').select()
+		playList.forEach(async function(play) {
+			console.log(`Searching for doubles in ${play.name}`)
+			await findDoubleCharacters(play.id)
+		})
+	} catch(reason) {
+		console.error(reason)
+	}
+}
 
 async function deleteUnusedCharacters(){
 	try {
@@ -161,8 +181,48 @@ async function deleteUnusedCharacters(){
 				console.log(`Deleted ${success} unused characters`)
 			}
 		}
+		console.log("Done checking character names")
 	} catch(reason) {
+		console.error(reason)
+	}
+}
 
+async function findDoubleCharacters(play_id) {
+	try {
+		const charList = await pg('characters').select().where({play_id})
+		for(let i = 0; i < await charList.length; i++) {
+			for(let j = i + 1; j < charList.length; j++) {
+				if(charList[i].name === charList[j].name) {
+					console.log(`Merging characters (${charList[i].name}) found in play #${play_id}`)
+					await pg('text').where({character_id: charList[j].id}).update({character_id: charList[i].id})
+				}
+			}
+		}
+		console.log(`Finished searching play #${play_id}`)
+	} catch(reason) {
+		console.error(reason)
+	}
+}
+
+async function removeSpacesInCharNames(){
+	const whiteSpaceChars = [' ', '\t', '	']
+	try {
+		const charList = await pg('characters').select()
+		for(let i = 0; i < charList.length; i++) {
+			let { name } = charList[i]
+			while(whiteSpaceChars.includes(name[0])) {
+				name = name.slice(1)
+			}
+			while(whiteSpaceChars.includes(name[name - 1])) {
+				name = name.slice(0, -1)
+			}
+			if(name !== charList[i].name) {
+				let success = await pg('characters').where({ id: charList[i].id }).update({name}, id)
+				console.log(`Updated name of characters: (${name}) in play # ${success}`)
+			}
+		}
+	} catch(reason) {
+		console.error(reason)
 	}
 }
 

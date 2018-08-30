@@ -1,0 +1,25 @@
+Request some lines:
+/play/act/scene/firstLine[/lastLine]
+
+Request all lines
+/play/all
+/play/act/all
+/play/act/scene/all
+
+Request characters lines
+/play/char/all
+/play/char/act/all
+/play/char/act/scene/all
+
+Request all #s and keys
+/plays/keys
+/play/chars/keys
+
+Request info
+/play/info
+/play/char/info
+
+Request monologues
+/monologues/all
+/play/monologues
+/play/char/monologues

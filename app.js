@@ -1,42 +1,63 @@
 //Dependancies
 const express = require('express')
 const fs = require('fs')
-const pgp = require('pg-promise')
+const functions = require('./functions')
 
 //Database
 const pg = require('knex')({
 	client: 'pg',
-	connection: process.env.PG_CONNECTION_STRING,
-	searchPath: ['knex', 'public'],
-})
+	version: '10',
+	connection: {
+		host: '127.0.0.1',
+		user: 'horatio',
+		password: 'GoodnightSweetPrince',
+		database: 'ShakespearIO'
+	}
+});
 
 //Server declarations
 const app = express();
 const port = process.env.PORT || 3000;
 
+
+//Routers
+const text = require('./routers/text')
+
+
 /*Middleware*/
-//Server log
-app.use((req, res, next) => {
-	const now = new Date().toString()
-	const log = `${now}: ${req.method} ${req.url}`
-	fs.appendFile('server.log', log + '\n', (err) => {
-		if(err) {
-			console.log('Unable to append to server.log')
-		}
-	});
-	console.log(log)
-	next()
-})
+	//Server log
+	app.use((req, res, next) => {
+		const now = new Date().toString()
+		const log = `${now}: ${req.method} ${req.url}`
+		fs.appendFile('server.log', log + '\n', (err) => {
+			if(err) {
+				console.log('Unable to append to server.log')
+			}
+		});
+		console.log(log)
+		next()
+	})
+
+	//Routes
+	app.use('/text', text)
+
+
 
 
 //Server response actions
-app.get('/', (req, res) => {
-	res.send()
-})
 
+app.get('/plays', async function(req, res) {
+	try {
+		let data = await pg('plays').select('full_name', 'id', 'key')
+		res.send(data)
+	} catch(e) {
+		functions.logError(e, req)
+	}
+})
 
 
 //Listening on port
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`)
 })
+

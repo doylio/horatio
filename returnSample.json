@@ -1,0 +1,26 @@
+{
+	"play": "Hamlet, Prince of Denmark",
+	"play_id": 260,
+	"key": "hamlet",
+	"data": [
+		{
+			"act": 1,
+			"scene": 2,
+			"text":[
+				{
+					"character": "HAMLET",
+					"lines": [
+						{
+							"line_no": 1,
+							"line": "Thus my father dies"
+						},
+						{
+							"line_no": 2,
+							"line": "And I with him shall go"
+						}
+					]
+				},
+			]
+		}
+	],
+}

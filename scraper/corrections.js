@@ -160,7 +160,7 @@ async function allPlays() {
 	try {
 		const playList = await pg('plays').select()
 		playList.forEach(async function(play) {
-			console.log(`Searching for doubles in ${play.name}`)
+			console.log(`Searching for doubles in ${play.key}`)
 			await findDoubleCharacters(play.id)
 		})
 	} catch(reason) {
@@ -390,7 +390,7 @@ async function removeFalseLines(entry){
 
 
 async function getPlayId(playName){
-	return (await pg('plays').select('id').where({name: playName}))[0].id
+	return (await pg('plays').select('id').where({key: playName}))[0].id
 }
 
 async function getCharacterId(characterName, playName) {

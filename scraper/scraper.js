@@ -30,10 +30,10 @@ function finish() {
 async function addPlayToDatabase(title) {
 	try{
 		//Check for play in public.plays
-		let play_id = await pg('plays').select('id').where({name: title})
+		let play_id = await pg('plays').select('id').where({key: title})
 		if(await play_id.length === 0) {
 			console.log(`${title}: Adding to public.plays`)
-			play_id = (await pg('plays').insert({name: title}, 'id'))[0]
+			play_id = (await pg('plays').insert({key: title}, 'id'))[0]
 		} else {
 			play_id = (await play_id)[0].id
 		}

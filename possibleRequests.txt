@@ -1,25 +1,35 @@
-Request some lines:
-/play/act/scene/firstLine[/lastLine]
-
-Request all lines
-/play/all
-/play/act/all
-/play/act/scene/all
+Request lines
+	text/p/
+	text/p/act/
+	text/p/act/scene/
+	text/p/act/scene/line/
+	text/p/act/scene/first/last/
 
 Request characters lines
-/play/char/all
-/play/char/act/all
-/play/char/act/scene/all
+	text/p/?char=#
+	text/p/act/?char=#
+	text/p/act/scene/?char=#
+
+Request character info
+	characters/  (all characters)
+	characters/?char=#
 
 Request all #s and keys
-/plays/keys
-/play/chars/keys
+	plays
+
+Request character list
+	p/chars
 
 Request info
-/play/info
-/play/char/info
+	p/info
+
+
+
+
+
 
 Request monologues
-/monologues/all
-/play/monologues
-/play/char/monologues
+	monologue/
+	monologue/p/
+	monologue/p/?char=#
+

@@ -1,5 +1,6 @@
 //Dependancies
 const fs = require('fs')
+const o = require('./objects')
 
 
 //Database
@@ -14,10 +15,11 @@ const pg = require('knex')({
 	}
 });
 
-const logError = function(err, req) {
 
+//Functions
+const logError = function(err, req) {
 	const now = new Date().toString()
-	const log
+	let log
 	if(req) {
 		log = `${now}: ${req.method} ${req.url}`
 	} else {
@@ -29,38 +31,121 @@ const logError = function(err, req) {
 		}
 	});
 }
-
 module.exports.logError = logError
 
-const getCharName = async function(character_id) {
-	try {
 
+const getCharName = async function(id) {
+	try {
+		let charName = await pg('characters').select('name').where({id})
+		return charName[0].name
 	} catch(e) {
 		logError(e)
 	}
 }
+module.exports.getCharName = getCharName
 
-
-module.exports.packSceneData = async function(play_id, act, scene) {
+const getScenes = async function(play_id, act) {
 	try {
-		let dbLines = await pg('text').where({ play_id, act, scene }).orderBy('line_no')
-		let textArray = []
-
-		let currentCharId = dbLines[0].character_id
-		for(let i = 0; i < dbLines.length; i++) {
-
+		let whereParams = {play_id}
+		if(act) {
+			whereParams.act = act
 		}
 
+		let scenes = await pg('text')
+			.select('play_id', 'act', 'scene')
+			.where(whereParams)
+			.groupBy('play_id', 'act', 'scene')
+			.orderByRaw('act, scene')
+		return scenes
+	} catch (e) {
+		logError(e)
+	}
+}
+module.exports.getScenes = getScenes
+
+
+const packSceneText = async function({play_id, act, scene, firstLine, lastLine}) {
+	try {
+		let dbLines 
+		if(!firstLine) {
+			dbLines	= await pg('text')
+				.where({ play_id, act, scene })
+				.orderBy('line_no')
+		} else if(!lastLine) {
+			dbLines = await pg('text')
+				.where({ play_id, act, scene, line_no: firstLine })
+		} else {
+			dbLines	= await pg('text')
+				.where({ play_id, act, scene })
+				.where('line_no', '>=', firstLine)
+				.where('line_no', '<=', lastLine)
+				.orderBy('line_no')
+		}
+
+		let text = []
+		let currentCharId = dbLines[0].character_id
+		let currentBlock = o.speechBlock(await getCharName(currentCharId))
+		for(let i = 0; i < dbLines.length; i++) {
+			if(dbLines[i].character_id !== currentCharId) {
+				text.push(currentBlock)
+				currentCharId = dbLines[i].character_id
+				currentBlock = o.speechBlock(await getCharName(currentCharId))
+			}
+			currentBlock.lines.push({
+				line_no: dbLines[i].line_no,
+				line: dbLines[i].line
+			})
+		}
+		text.push(currentBlock)
+		return {
+			act,
+			scene,
+			text,
+		}
+	} catch(e) {
+		logError(e)
+	}
+}
+module.exports.packSceneText = packSceneText
+
+module.exports.packPlayText = async function(play_id, act) {
+	try {
+		const requestedScenes = await getScenes(play_id, act)
+		let play_text = []
+		for(let i = 0; i < requestedScenes.length; i++) {
+			play_text[i] = await packSceneText(requestedScenes[i])
+		}
+		return play_text
+	} catch(e) {
+		logError(e)
+	}
+}
+
+module.exports.getPlayData = async function(keyOrId) {
+	try {
+		let whereParams
+		if(isNaN(keyOrId)) {
+			whereParams = {key: keyOrId}
+		} else {
+			whereParams = {id: keyOrId}
+		}
+		let play_data = await pg('plays').select().where(whereParams)
+
+		return await play_data[0]
 	} catch(e) {
 		logError(e)
 	}
 }
 
 
-module.exports.getPlayId = async function(key) {
+module.exports.getLines = async function(play_id, act, scene, firstLine, lastLine) {
 	try {
-		let play_id = await pg('plays').select('id').where({key})
-		return play_id[0].id
+		let requestedLines
+		if(lastLine) {
+			requestedLines = await pg('text').where({play_id, act, scene}).where('line_no', '>=', firstLine).where('line_no', '<=', lastLine)
+		} else {
+			requestedLines = await pg('text').where({play_id, act, scene, line_no: firstLine})
+		}
 	} catch(e) {
 		logError(e)
 	}

@@ -1,7 +1,7 @@
 //Dependancies
 const express = require('express')
 const fs = require('fs')
-const functions = require('./functions')
+const f = require('./functions')
 
 //Database
 const pg = require('knex')({
@@ -51,8 +51,23 @@ app.get('/plays', async function(req, res) {
 		let data = await pg('plays').select('full_name', 'id', 'key')
 		res.send(data)
 	} catch(e) {
-		functions.logError(e, req)
+		f.logError(e, req)
 	}
+})
+
+app.get('/test', async function(req, res) {
+	try {
+		let data = await f.packPlayData(270)
+		res.send(data)
+	} catch(e) {
+		f.logError(e, req)
+	}
+})
+
+
+//All other routes
+app.get('*', (req, res) => {
+	res.send("Sorry, this is an invalid URL")
 })
 
 

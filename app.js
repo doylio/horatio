@@ -57,7 +57,7 @@ app.get('/plays', async function(req, res) {
 
 app.get('/test', async function(req, res) {
 	try {
-		let data = await f.packPlayData(270)
+		let data = await pg('plays').where({id: undefined})
 		res.send(data)
 	} catch(e) {
 		f.logError(e, req)
@@ -65,9 +65,10 @@ app.get('/test', async function(req, res) {
 })
 
 
+
 //All other routes
 app.get('*', (req, res) => {
-	res.send("Sorry, this is an invalid URL")
+	res.status(404).send("Invalid url")
 })
 
 

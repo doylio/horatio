@@ -20,7 +20,7 @@ const text = express.Router()
 text.get('/:play', async function(req, res) {
 	try {
 		const play_data = await f.getPlayData(req.params.play)
-		const play_text = await f.packPlayText(play_data.id)
+		const play_text = await f.packPlayText(play_data.id, undefined, req.query.char)
 		const play = new o.Play(play_data)
 		play.addText(play_text)
 		const response = new o.Response(req)
@@ -31,10 +31,10 @@ text.get('/:play', async function(req, res) {
 	}
 })
 
-text.get('/:play/:act', async function(req, res){
+text.get('/:play/:act([0-9]+)', async function(req, res){
 	try {
 		const play_data = await f.getPlayData(req.params.play)
-		const play_text = await f.packPlayText(play_data.id, req.params.act)
+		const play_text = await f.packPlayText(play_data.id, req.params.act, req.query.char)
 		const play = new o.Play(play_data)
 		play.addText(play_text)
 		const response = new o.Response(req)
@@ -45,7 +45,7 @@ text.get('/:play/:act', async function(req, res){
 	}
 })
 
-text.get('/:play/:act/:scene', async function(req, res) {
+text.get('/:play/:act([0-9]+)/:scene([0-9]+)', async function(req, res) {
 	try {
 		const play_data = await f.getPlayData(req.params.play)
 		const scene_index = {
@@ -53,7 +53,7 @@ text.get('/:play/:act/:scene', async function(req, res) {
 			act: req.params.act,
 			scene: req.params.scene
 		}
-		const scene_text = await f.packSceneText(scene_index)
+		const scene_text = await f.packSceneText(scene_index, req.query.char)
 		const play = new o.Play(play_data)
 		play.addText(scene_text)
 		const response = new o.Response(req)
@@ -64,7 +64,7 @@ text.get('/:play/:act/:scene', async function(req, res) {
 	}
 })
 
-text.get('/:play/:act/:scene/:lines', async function (req, res) {
+text.get('/:play/:act([0-9]+)/:scene([0-9]+)/:lines([0-9]+|[0-9]+-[0-9]+)', async function (req, res) {
 	try {
 		const play_data = await f.getPlayData(req.params.play)
 		const [ firstLine, lastLine ] = req.params.lines.split('-')
@@ -75,7 +75,7 @@ text.get('/:play/:act/:scene/:lines', async function (req, res) {
 			firstLine,
 			lastLine
 		}
-		const scene_text = await f.packSceneText(scene_index)
+		const scene_text = await f.packSceneText(scene_index, req.query.char)
 		const play = new o.Play(play_data)
 		play.addText(scene_text)
 		const response = new o.Response(req)

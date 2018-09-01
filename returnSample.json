@@ -1,8 +1,17 @@
+All returns
 {
-	"play": "Hamlet, Prince of Denmark",
+	"URL": "www.shakesAPI.co//text/4/3/2",
+	"timeOfRequest": "Jan 04 1999 16:54:54 EST",
+	"data": {}
+}
+
+
+Text return obj
+{
+	"play_name": "Hamlet, Prince of Denmark",
 	"play_id": 260,
-	"key": "hamlet",
-	"data": [
+	"play_key": "hamlet",
+	"play_text": [
 		{
 			"act": 1,
 			"scene": 2,
@@ -23,4 +32,9 @@
 			]
 		}
 	],
+}
+
+Characters return obj
+{
+
 }

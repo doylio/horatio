@@ -790,3 +790,89 @@ Sat Sep 01 2018 16:47:07 GMT+0800 (China Standard Time): GET /270/5/1
 	ReferenceError: response0 is not defined
 Sat Sep 01 2018 16:47:24 GMT+0800 (China Standard Time): GET /270/5/1
 	ReferenceError: response0 is not defined
+Sat Sep 01 2018 18:34:03 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:34:07 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:41:16 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:46:30 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:04 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined

@@ -64,21 +64,24 @@ const getScenes = async function(play_id, act) {
 module.exports.getScenes = getScenes
 
 
-const packSceneText = async function({play_id, act, scene, firstLine, lastLine}) {
+const packSceneText = async function({play_id, act, scene, firstLine, lastLine}, charFilter) {
+	const whereParams = { play_id, act, scene }
+	if(firstLine && !lastLine) {
+		whereParams.line_no = firstLine
+	}
+	// if(charFilter) {
+	// 	whereParams.character_id = charFilter
+	// }
 	try {
-		let dbLines 
-		if(!firstLine) {
+		let dbLines
+		if(lastLine) {
 			dbLines	= await pg('text')
-				.where({ play_id, act, scene })
+				.where(whereParams)
+				.whereBetween('line_no', [firstLine, lastLine])
 				.orderBy('line_no')
-		} else if(!lastLine) {
-			dbLines = await pg('text')
-				.where({ play_id, act, scene, line_no: firstLine })
 		} else {
-			dbLines	= await pg('text')
-				.where({ play_id, act, scene })
-				.where('line_no', '>=', firstLine)
-				.where('line_no', '<=', lastLine)
+			dbLines = await pg('text')
+				.where(whereParams)
 				.orderBy('line_no')
 		}
 
@@ -97,23 +100,26 @@ const packSceneText = async function({play_id, act, scene, firstLine, lastLine})
 			})
 		}
 		text.push(currentBlock)
-		return {
-			act,
-			scene,
-			text,
+
+		let scene = { act, scene, text }
+		if(charFilter){
+			const character = await getCharName(charFilter)
+			scene.text = text.filter(block => block.character === character)
 		}
+
+		return scene
 	} catch(e) {
 		logError(e)
 	}
 }
 module.exports.packSceneText = packSceneText
 
-module.exports.packPlayText = async function(play_id, act) {
+module.exports.packPlayText = async function(play_id, act, charFilter) {
 	try {
 		const requestedScenes = await getScenes(play_id, act)
 		let play_text = []
 		for(let i = 0; i < requestedScenes.length; i++) {
-			play_text[i] = await packSceneText(requestedScenes[i])
+			play_text[i] = await packSceneText(requestedScenes[i], charFilter)
 		}
 		return play_text
 	} catch(e) {

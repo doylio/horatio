@@ -23,6 +23,7 @@ const port = process.env.PORT || 3000;
 //Routers
 const text = require('./routers/text')
 const plays = require('./routers/plays')
+const characters = require('./routers/characters')
 
 /*Middleware*/
 	//Server log
@@ -41,6 +42,7 @@ const plays = require('./routers/plays')
 	//Routes
 	app.use('/text', text)
 	app.use('/plays', plays)
+	app.use('/characters', characters)
 
 
 

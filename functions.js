@@ -17,7 +17,7 @@ const pg = require('knex')({
 
 
 //Functions
-const logError = function(err, req) {
+const logError = function(err, req, res) {
 	console.log(err)
 	const now = new Date().toString()
 	let log
@@ -31,6 +31,10 @@ const logError = function(err, req) {
 			console.error('Unable to append to error.log')
 		}
 	});
+	if(res) {
+		res.status(501)
+		res.send("Sorry!  Something went wrong...")
+	}
 }
 module.exports.logError = logError
 
@@ -166,11 +170,32 @@ module.exports.charFilter = async function(play_text, character_id) {
 				scene.text = scene.text.filter(block => block.character === character)
 				return scene
 			})
+			play_text = play_text.filter(scene => scene.text.length)
 			return play_text
 		} catch(e) {
 			logError(e)
 		}
 	} else {
 		return play_text
+	}
+}
+
+module.exports.getCharacterList = async function(characterIdOrName, play_id) {
+	try {
+		let whereParams = {}
+		if(characterIdOrName) {
+			if(isNaN(characterIdOrName)) {
+				whereParams.name = characterIdOrName.toUpperCase()
+			} else {
+				whereParams.id = characterIdOrName
+			}
+		}
+		if(play_id) {
+			whereParams.play_id = play_id
+		}
+		let charList = await pg('characters').where(whereParams).orderBy('id')
+		return charList
+	} catch(e) {
+		logError(e)
 	}
 }

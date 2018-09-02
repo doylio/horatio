@@ -7,20 +7,21 @@ x	text/p/act/scene/first-last
 
 Search lines
 	search/searchterm
+	search/searchterm?char=#
 
 Request characters lines
-	text/p/?char=#
-	text/p/act/?char=#
-	text/p/act/scene/?char=#
+x	text/p/?char=#
+x	text/p/act/?char=#
+x	text/p/act/scene/?char=#
 
 Request character info
 	characters/  (all characters)
 	characters/?char=#
 	characters/p
 
-Request info (metadata, keys, id, etc)
-	info/
-	info/p
+Request plays (metadata, keys, id, etc)
+x	plays/
+x	plays/p
 
 
 

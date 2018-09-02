@@ -24,23 +24,32 @@ plays.get('/', async function(req, res) {
 		response.addData(play_list)
 		res.send(response)
 	} catch(e) {
-		f.logError(e, req)
+		f.logError(e, req, res)
 	}
 })
 
 plays.get('/:play', async function(req, res) {
 	try {
+		const response = new o.Response(req)
 		const play_data = await f.getPlayData(req.params.play)
+		if(!play_data) {
+			response.Error(1)
+			res.status(400).send(response)
+		}
+		console.log(play_data)
 		const play = await pg('plays')
 			.select('full_name', 'id', 'key', 'year_published', 'description')
 			.where({id: play_data.id})
-		const response = new o.Response(req)
 		response.addData(play)
 		res.send(response)
 	} catch(e) {
-		f.logError(e, req)
+		f.logError(e, req, res)
 	}
 })
 
+
+plays.get('*', (req, res) => {
+	res.status(404).send("Invalid url")
+})
 
 module.exports = plays

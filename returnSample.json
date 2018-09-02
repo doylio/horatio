@@ -35,6 +35,17 @@ Text return obj
 }
 
 Characters return obj
-{
-
-}
+[
+	{
+		"name": "Macbeth",
+		"id": 654,
+		"appears_in": {
+			"play_name": "Macbeth",
+			"play_id": 65,
+			"play_key": "macbeth"
+		},
+		"age": "Late 40s",
+		"gender": "Male",
+		"description": "Thane of Cawdor"
+	}
+]

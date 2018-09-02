@@ -1,6 +1,7 @@
 //Dependancies
 const fs = require('fs')
 const f = require('./functions')
+const errorCode = require('./errorCodes')
 
 //Objects
 module.exports.speechBlock = (characterName) => {
@@ -15,6 +16,9 @@ module.exports.Response = function(req) {
 	this.time = new Date().toString()
 	this.addData = (data) => {
 		this.data = data
+	}
+	this.Error = (n) => {
+		this.error = errorCode[n]
 	}
 }
 

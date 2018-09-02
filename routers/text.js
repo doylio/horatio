@@ -20,7 +20,8 @@ const text = express.Router()
 text.get('/:play', async function(req, res) {
 	try {
 		const play_data = await f.getPlayData(req.params.play)
-		const play_text = await f.packPlayText(play_data.id, undefined, req.query.char)
+		let play_text = await f.packPlayText(play_data.id)
+		play_text = await f.charFilter(play_text, req.query.char)
 		const play = new o.Play(play_data)
 		play.addText(play_text)
 		const response = new o.Response(req)
@@ -34,7 +35,8 @@ text.get('/:play', async function(req, res) {
 text.get('/:play/:act([0-9]+)', async function(req, res){
 	try {
 		const play_data = await f.getPlayData(req.params.play)
-		const play_text = await f.packPlayText(play_data.id, req.params.act, req.query.char)
+		let play_text = await f.packPlayText(play_data.id, req.params.act)
+		play_text = await f.charFilter(play_text, req.query.char)
 		const play = new o.Play(play_data)
 		play.addText(play_text)
 		const response = new o.Response(req)
@@ -45,6 +47,7 @@ text.get('/:play/:act([0-9]+)', async function(req, res){
 	}
 })
 
+
 text.get('/:play/:act([0-9]+)/:scene([0-9]+)', async function(req, res) {
 	try {
 		const play_data = await f.getPlayData(req.params.play)
@@ -53,9 +56,11 @@ text.get('/:play/:act([0-9]+)/:scene([0-9]+)', async function(req, res) {
 			act: req.params.act,
 			scene: req.params.scene
 		}
-		const scene_text = await f.packSceneText(scene_index, req.query.char)
+		let play_text = [await f.packSceneText(scene_index)]
+		play_text = await f.charFilter(play_text, req.query.char)
 		const play = new o.Play(play_data)
-		play.addText(scene_text)
+		play.addText(play_text)
+
 		const response = new o.Response(req)
 		response.addData(play)
 		res.send(response)
@@ -75,9 +80,10 @@ text.get('/:play/:act([0-9]+)/:scene([0-9]+)/:lines([0-9]+|[0-9]+-[0-9]+)', asyn
 			firstLine,
 			lastLine
 		}
-		const scene_text = await f.packSceneText(scene_index, req.query.char)
+		let play_text = [await f.packSceneText(scene_index)]
+		play_text = await f.charFilter(play_text, req.query.char)
 		const play = new o.Play(play_data)
-		play.addText(scene_text)
+		play.addText(play_text)
 		const response = new o.Response(req)
 		response.addData(play)
 		res.send(response)
@@ -85,8 +91,6 @@ text.get('/:play/:act([0-9]+)/:scene([0-9]+)/:lines([0-9]+|[0-9]+-[0-9]+)', asyn
 		f.logError(e, req)
 	}
 })
-
-
 
 
 module.exports = text

@@ -5,6 +5,9 @@ x	text/p/act/scene/
 x	text/p/act/scene/line/
 x	text/p/act/scene/first-last
 
+Search lines
+	search/searchterm
+
 Request characters lines
 	text/p/?char=#
 	text/p/act/?char=#

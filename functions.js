@@ -18,6 +18,7 @@ const pg = require('knex')({
 
 //Functions
 const logError = function(err, req) {
+	console.log(err)
 	const now = new Date().toString()
 	let log
 	if(req) {
@@ -35,11 +36,15 @@ module.exports.logError = logError
 
 
 const getCharName = async function(id) {
-	try {
-		let charName = await pg('characters').select('name').where({id})
-		return charName[0].name
-	} catch(e) {
-		logError(e)
+	if(isNaN(id)) {
+		return id.toUpperCase()
+	} else {
+		try {
+			let charName = await pg('characters').select('name').where({id})
+			return charName[0].name
+		} catch(e) {
+			logError(e)
+		}
 	}
 }
 module.exports.getCharName = getCharName
@@ -64,14 +69,11 @@ const getScenes = async function(play_id, act) {
 module.exports.getScenes = getScenes
 
 
-const packSceneText = async function({play_id, act, scene, firstLine, lastLine}, charFilter) {
+const packSceneText = async function({play_id, act, scene, firstLine, lastLine}) {
 	const whereParams = { play_id, act, scene }
 	if(firstLine && !lastLine) {
 		whereParams.line_no = firstLine
 	}
-	// if(charFilter) {
-	// 	whereParams.character_id = charFilter
-	// }
 	try {
 		let dbLines
 		if(lastLine) {
@@ -101,26 +103,25 @@ const packSceneText = async function({play_id, act, scene, firstLine, lastLine},
 		}
 		text.push(currentBlock)
 
-		let scene = { act, scene, text }
-		if(charFilter){
-			const character = await getCharName(charFilter)
-			scene.text = text.filter(block => block.character === character)
+		return {
+			act,
+			scene,
+			text,
 		}
-
-		return scene
 	} catch(e) {
 		logError(e)
 	}
 }
 module.exports.packSceneText = packSceneText
 
-module.exports.packPlayText = async function(play_id, act, charFilter) {
+module.exports.packPlayText = async function(play_id, act) {
 	try {
 		const requestedScenes = await getScenes(play_id, act)
 		let play_text = []
 		for(let i = 0; i < requestedScenes.length; i++) {
-			play_text[i] = await packSceneText(requestedScenes[i], charFilter)
+			play_text[i] = await packSceneText(requestedScenes[i])
 		}
+
 		return play_text
 	} catch(e) {
 		logError(e)
@@ -154,5 +155,22 @@ module.exports.getLines = async function(play_id, act, scene, firstLine, lastLin
 		}
 	} catch(e) {
 		logError(e)
+	}
+}
+
+module.exports.charFilter = async function(play_text, character_id) {
+	if(character_id) {
+		try {
+			const character = await getCharName(character_id)
+			play_text = play_text.map(scene => {
+				scene.text = scene.text.filter(block => block.character === character)
+				return scene
+			})
+			return play_text
+		} catch(e) {
+			logError(e)
+		}
+	} else {
+		return play_text
 	}
 }

@@ -22,7 +22,7 @@ const port = process.env.PORT || 3000;
 
 //Routers
 const text = require('./routers/text')
-
+const plays = require('./routers/plays')
 
 /*Middleware*/
 	//Server log
@@ -40,24 +40,15 @@ const text = require('./routers/text')
 
 	//Routes
 	app.use('/text', text)
-
+	app.use('/plays', plays)
 
 
 
 //Server response actions
 
-app.get('/plays', async function(req, res) {
-	try {
-		let data = await pg('plays').select('full_name', 'id', 'key')
-		res.send(data)
-	} catch(e) {
-		f.logError(e, req)
-	}
-})
-
 app.get('/test', async function(req, res) {
 	try {
-		let data = await pg('plays').where({id: undefined})
+		let data = req.query
 		res.send(data)
 	} catch(e) {
 		f.logError(e, req)
@@ -76,4 +67,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`)
 })
-

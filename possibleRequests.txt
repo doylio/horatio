@@ -6,8 +6,14 @@ x	text/p/act/scene/line/
 x	text/p/act/scene/first-last
 
 Search lines
-	search/searchterm
-	search/searchterm?char=#
+	search/
+	search/p
+	search/p/a
+	search/p/a/s
+	search/p/a/s/l
+	search/p/a/s/f-l
+
+	ALL with optional queries ?char=#&q=searchTerm 
 
 Request characters lines
 x	text/p/?char=#
@@ -15,9 +21,9 @@ x	text/p/act/?char=#
 x	text/p/act/scene/?char=#
 
 Request character info
-	characters/  (all characters)
-	characters/?char=#
-	characters/p
+x	characters/  (all characters)
+x	characters/?char=#
+x	characters/p
 
 Request plays (metadata, keys, id, etc)
 x	plays/

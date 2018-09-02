@@ -45,10 +45,6 @@ characters.get('/:play', async function(req, res) {
 })
 
 
-
-
-
-
 characters.get('*', (req, res) => {
 	res.status(404).send("Invalid url")
 })

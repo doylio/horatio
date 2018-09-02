@@ -24,6 +24,7 @@ const port = process.env.PORT || 3000;
 const text = require('./routers/text')
 const plays = require('./routers/plays')
 const characters = require('./routers/characters')
+const search = require('./routers/search')
 
 /*Middleware*/
 	//Server log
@@ -43,7 +44,7 @@ const characters = require('./routers/characters')
 	app.use('/text', text)
 	app.use('/plays', plays)
 	app.use('/characters', characters)
-
+	app.use('/search', search)
 
 
 //Server response actions

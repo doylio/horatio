@@ -1296,3 +1296,55 @@ Sun Sep 02 2018 17:12:28 GMT+0800 (China Standard Time): GET /hamle/
 	TypeError: response.Error is not a function
 Sun Sep 02 2018 17:26:22 GMT+0800 (China Standard Time): GET /macb
 	TypeError: Cannot read property 'id' of undefined
+Wed Sep 05 2018 15:59:22 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 15:59:27 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 15:59:54 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 15:59:56 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:33 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:37 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:53 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:54 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:54 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:06:01 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:06:02 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:07:05 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:07:06 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:33:51 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:35:18 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 18:47:49 GMT+0800 (China Standard Time): GET /test/pericles/
+	TypeError: o.SpeechBlock is not a constructor
+Wed Sep 05 2018 18:48:29 GMT+0800 (China Standard Time): GET /test/pericles/
+	TypeError: currentScene.push is not a function
+Wed Sep 05 2018 18:49:11 GMT+0800 (China Standard Time): GET /test/pericles/
+	TypeError: Cannot read property 'push' of undefined
+Wed Sep 05 2018 18:53:04 GMT+0800 (China Standard Time): GET /test/pericles/
+	ReferenceError: currentPlay is not defined
+Wed Sep 05 2018 19:05:26 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'length' of undefined
+Wed Sep 05 2018 19:11:04 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:11:50 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:13:50 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:15:03 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:15:22 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:16:22 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined

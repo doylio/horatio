@@ -17,19 +17,91 @@ const pg = require('knex')({
 
 const text = express.Router()
 
+
+text.get('/test/:play', async function(req, res) {
+	try {
+		const response = new o.Response(req)
+		const { play } = req.params
+		const { char, search } = req.query
+		let textParams = { play, char}
+		let rawData = await f.getText(textParams)
+		//Search the stuff
+		let packaged_text = await f.packLines(rawData)
+		response.addData(packaged_text)
+		res.send(response)
+	} catch(e) {
+		f.logError(e, req)
+	}
+})
+
+text.get('/test/:play/:act', async function(req, res) {
+	try {
+		const response = new o.Response(req)
+		const { play, act } = req.params
+		const { char, search } = req.query
+		let textParams = { play, act, char }
+		let rawData = await f.getText(textParams)
+		response.addData(rawData)
+		res.send(response)
+	} catch(e) {
+		f.logError(e, req)
+	}
+})
+
+text.get('/test/:play/:act/:scene', async function(req, res) {
+	try {
+		const response = new o.Response(req)
+		const { play, act, scene } = req.params
+		const { char, search } = req.query
+		let textParams = { play, act, scene, char }
+		let rawData = await f.getText(textParams)
+		response.addData(rawData)
+		res.send(response)
+	} catch(e) {
+		f.logError(e, req)
+	}
+})
+
+text.get('/test/:play/:act/:scene/:lines', async function(req, res) {
+	try {
+		const response = new o.Response(req)
+		const [ firstLine, lastLine ] = req.params.lines.split('-')
+		const { play, act, scene } = req.params
+		const { char, search } = req.query
+		let textParams = { play, act, scene, firstLine, lastLine, char }
+		let rawData = await f.getText(textParams)
+		response.addData(rawData)
+		res.send(response)
+	} catch(e) {
+		f.logError(e, req)
+	}
+})
+
+text.get('/', async function(req, res) {
+	try {
+		const response = new o.Response(req)
+		const { char, search } = req.query
+		const SQLParams = { char }
+		let rawData = await f.getText(SQLParams)
+		//Search function
+		let packaged_text = f.packLines(rawData)
+		response.addData(packaged_text)
+		res.send(response)
+	} catch (e) {
+		f.logError(e, req)
+	}
+})
+
 text.get('/:play', async function(req, res) {
 	try {
 		const response = new o.Response(req)
-		const play_data = await f.getPlayData(req.params.play)
-		if(!play_data) {
-			response.Error(1)
-			res.status(400).send(response)
-		}
-		let play_text = await f.packPlayText(play_data.id)
-		play_text = await f.charFilter(play_text, req.query.char)
-		const play = new o.Play(play_data)
-		play.addText(play_text)
-		response.addData(play)
+		const { play } = req.params
+		const { char, search } = req.query
+		const SQLParams = { play, char}
+		let rawData = await f.getText(SQLParams)
+		//Search the stuff
+		let packaged_text = f.packLines(rawData)
+		response.addData(packaged_text)
 		res.send(response)
 	} catch (e) {
 		f.logError(e, req, res)
@@ -39,16 +111,13 @@ text.get('/:play', async function(req, res) {
 text.get('/:play/:act([0-9]+)', async function(req, res){
 	try {
 		const response = new o.Response(req)
-		const play_data = await f.getPlayData(req.params.play)
-		if(!play_data) {
-			response.Error(1)
-			res.status(400).send(response)
-		}
-		let play_text = await f.packPlayText(play_data.id, req.params.act)
-		play_text = await f.charFilter(play_text, req.query.char)
-		const play = new o.Play(play_data)
-		play.addText(play_text)
-		response.addData(play)
+		const { play, act } = req.params
+		const { char, search } = req.query
+		const SQLParams = { play, act, char }
+		let rawData = await f.getText(SQLParams)
+		//Search function
+		let packaged_text = f.packLines(rawData)
+		response.addData(packaged_text)
 		res.send(response)
 	} catch(e) {
 		f.logError(e, req, res)
@@ -59,21 +128,13 @@ text.get('/:play/:act([0-9]+)', async function(req, res){
 text.get('/:play/:act([0-9]+)/:scene([0-9]+)', async function(req, res) {
 	try {
 		const response = new o.Response(req)
-		const play_data = await f.getPlayData(req.params.play)
-		if(!play_data) {
-			response.Error(1)
-			res.status(400).send(response)
-		}
-		const scene_index = {
-			play_id: play_data.id,
-			act: req.params.act,
-			scene: req.params.scene
-		}
-		let play_text = [await f.packSceneText(scene_index)]
-		play_text = await f.charFilter(play_text, req.query.char)
-		const play = new o.Play(play_data)
-		play.addText(play_text)
-		response.addData(play)
+		const { play, act, scene } = req.params
+		const { char, search } = req.query
+		const SQLParams = { play, act, scene, char }
+		let rawData = await f.getText(SQLParams)
+		//Search function
+		let packaged_text = f.packLines(rawData)
+		response.addData(packaged_text)
 		res.send(response)
 	} catch(e) {
 		f.logError(e, req, res)
@@ -83,24 +144,14 @@ text.get('/:play/:act([0-9]+)/:scene([0-9]+)', async function(req, res) {
 text.get('/:play/:act([0-9]+)/:scene([0-9]+)/:lines([0-9]+|[0-9]+-[0-9]+)', async function (req, res) {
 	try {
 		const response = new o.Response(req)		
-		const play_data = await f.getPlayData(req.params.play)
-		if(!play_data) {
-			response.Error(1)
-			res.status(400).send(response)
-		}
+		const { play, act, scene } = req.params
 		const [ firstLine, lastLine ] = req.params.lines.split('-')
-		const scene_index = {
-			play_id: play_data.id,
-			act: req.params.act,
-			scene: req.params.scene,
-			firstLine,
-			lastLine
-		}
-		let play_text = [await f.packSceneText(scene_index)]
-		play_text = await f.charFilter(play_text, req.query.char)
-		const play = new o.Play(play_data)
-		play.addText(play_text)
-		response.addData(play)
+		const { char, search } = req.query
+		const SQLParams = { play, act, scene, firstLine, lastLine, char }
+		let rawData = await f.getText(SQLParams)
+		//Search function
+		let packaged_text = f.packLines(rawData)
+		response.addData(packaged_text)
 		res.send(response)
 	} catch(e) {
 		f.logError(e, req, res)

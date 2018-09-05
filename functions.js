@@ -93,12 +93,12 @@ const packSceneText = async function({play_id, act, scene, firstLine, lastLine})
 
 		let text = []
 		let currentCharId = dbLines[0].character_id
-		let currentBlock = o.speechBlock(await getCharName(currentCharId))
+		let currentBlock = o.speechBlock(dbLines[0].name)
 		for(let i = 0; i < dbLines.length; i++) {
 			if(dbLines[i].character_id !== currentCharId) {
 				text.push(currentBlock)
 				currentCharId = dbLines[i].character_id
-				currentBlock = o.speechBlock(await getCharName(currentCharId))
+				currentBlock = o.speechBlock(dbLines[i].name)
 			}
 			currentBlock.lines.push({
 				line_no: dbLines[i].line_no,
@@ -198,4 +198,92 @@ module.exports.getCharacterList = async function(characterIdOrName, play_id) {
 	} catch(e) {
 		logError(e)
 	}
+}
+
+module.exports.getText = async function (SQLParams){
+	try {
+		let whereParams = {}
+		if(SQLParams.play) {
+			if(isNaN(SQLParams.play)) {
+				whereParams.key = SQLParams.play
+			} else {
+				whereParams['text.play_id'] = SQLParams.play
+			}
+		}
+		if(SQLParams.act) {
+			whereParams.act = SQLParams.act
+		}
+		if(SQLParams.scene) {
+			whereParams.scene = SQLParams.scene
+		}
+		if(SQLParams.firstLine && !SQLParams.lastLine) {
+			whereParams.line_no = SQLParams.firstLine
+		}
+		if(SQLParams.char) {
+			if(isNaN(SQLParams.char)) {
+				whereParams['character.name'] = SQLParams.char
+			} else {
+				whereParams.character_id = SQLParams.char
+			}
+		}
+		console.log(whereParams)
+		let text
+		if(SQLParams.lastLine) {
+			text = await pg('text')
+				.innerJoin('plays', 'plays.id', 'text.play_id')
+				.innerJoin('characters', 'characters.id', 'text.character_id')
+				.where(whereParams)
+				.whereBetween('line_no', [SQLParams.firstLine, SQLParams.lastLine])
+				.orderByRaw('text.play_id, text.act, text.scene, text.line_no')		
+		} else {
+			text = await pg('text')
+				.innerJoin('plays', 'plays.id', 'text.play_id')
+				.innerJoin('characters', 'characters.id', 'text.character_id')
+				.where(whereParams)
+				.orderByRaw('text.play_id, text.act, text.scene, text.line_no')
+		}
+		return text
+	} catch(e) {
+		logError(e)
+	}
+}
+
+//Takes properly ordered rows from the DB, and returns a sorted JS object
+module.exports.packLines = function(all_lines) {
+	let formattedLines = []
+	let currentPlay = new o.Play(all_lines[0])
+	let currentScene = new o.Scene(all_lines[0])
+	let currentBlock = new o.SpeechBlock(all_lines[0])
+	currentBlock.lines.push({
+		line_no: all_lines[0].line_no,
+		line: all_lines[0].line
+	})
+	for(let i = 1; i < all_lines.length; i++) {
+		if(all_lines[i].character_id !== currentBlock.character_id
+			|| all_lines[i].play_id !== currentPlay.play_id
+			|| all_lines[i].act !== currentScene.act
+			|| all_lines[i].scene !== currentScene.scene
+			|| all_lines[i].line_no - 1 !== all_lines[i - 1].line_no
+			
+		) {
+			currentScene.text.push(currentBlock)
+			currentBlock = new o.SpeechBlock(all_lines[i])
+		}
+		if(all_lines[i].act !== currentScene.act || all_lines[i].scene !== currentScene.scene) {
+			currentPlay.play_text.push(currentScene)
+			currentScene = new o.Scene(all_lines[i])
+		}
+		if(all_lines[i].play_id !== currentPlay.play_id) {
+			formattedLines.push(currentPlay)
+			currentPlay = new o.Play(all_lines[i])
+		}
+		currentBlock.lines.push({
+			line_no: all_lines[i].line_no,
+			line: all_lines[i].line
+		})
+	}
+	currentScene.text.push(currentBlock)
+	currentPlay.play_text.push(currentScene)
+	formattedLines.push(currentPlay)
+	return formattedLines
 }

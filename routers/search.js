@@ -18,7 +18,7 @@ const pg = require('knex')({
 
 const search = express.Router()
 
-search.get('/:term', async function(req, res) {
+search.get('/', async function(req, res) {
 	try {
 		res.send('search')
 	} catch(e) {

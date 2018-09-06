@@ -5,20 +5,10 @@ x	text/p/act/scene/
 x	text/p/act/scene/line/
 x	text/p/act/scene/first-last
 
-Search lines
-	search/
-	search/p
-	search/p/a
-	search/p/a/s
-	search/p/a/s/l
-	search/p/a/s/f-l
-
-	ALL with optional queries ?char=#&q=searchTerm 
-
-Request characters lines
-x	text/p/?char=#
-x	text/p/act/?char=#
-x	text/p/act/scene/?char=#
+	ALL with optional queries 
+x		char=#
+x		search=#
+x		- Search with fuzzy search Fuse.js
 
 Request character info
 x	characters/  (all characters)

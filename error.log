@@ -1348,3 +1348,63 @@ Wed Sep 05 2018 19:15:22 GMT+0800 (China Standard Time): GET /test/pericles/?cha
 	TypeError: Cannot read property 'line_no' of undefined
 Wed Sep 05 2018 19:16:22 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
 	TypeError: Cannot read property 'line_no' of undefined
+Thu Sep 06 2018 15:06:52 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:08:43 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:09:34 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:09:51 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:19:02 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:19:17 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:19:55 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:22:30 GMT+0800 (China Standard Time)
+	Error: No text found
+Thu Sep 06 2018 15:22:30 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property '0' of undefined
+Thu Sep 06 2018 15:22:44 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:24:17 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:26:13 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:26:13 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:26:32 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:26:59 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:28:07 GMT+0800 (China Standard Time): GET /pericles/3/17
+	ReferenceError: err is not defined
+Thu Sep 06 2018 15:41:44 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'char' of undefined
+Thu Sep 06 2018 15:42:12 GMT+0800 (China Standard Time)
+	error: select * from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "id" asc - ORDER BY "id" is ambiguous
+Thu Sep 06 2018 15:42:48 GMT+0800 (China Standard Time)
+	error: select * from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "character_id" asc - column "character_id" does not exist
+Thu Sep 06 2018 15:52:44 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "character_id" asc - column "character_id" does not exist
+Thu Sep 06 2018 15:53:11 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "plays"."character_id" asc - column plays.character_id does not exist
+Thu Sep 06 2018 15:59:42 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "id" = $1 and "key" = $2 order by "characters"."id" asc - column reference "id" is ambiguous
+Thu Sep 06 2018 15:59:42 GMT+0800 (China Standard Time): GET /hamlet?char=8075
+	TypeError: Cannot read property 'forEach' of undefined
+Thu Sep 06 2018 16:01:03 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "id" = $1 and "key" = $2 order by "characters"."id" asc - column reference "id" is ambiguous
+Thu Sep 06 2018 16:03:40 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "character"."id" = $1 and "key" = $2 order by "characters"."id" asc - missing FROM-clause entry for table "character"
+Thu Sep 06 2018 16:05:03 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'char' of undefined
+Thu Sep 06 2018 16:12:17 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "character"."name" = $1 order by text.play_id, text.act, text.scene, text.line_no - missing FROM-clause entry for table "character"
+Thu Sep 06 2018 16:15:44 GMT+0800 (China Standard Time): GET /?char=fool
+	TypeError: Cannot read property 'push' of undefined
+Thu Sep 06 2018 16:16:11 GMT+0800 (China Standard Time): GET /?char=fool
+	TypeError: Cannot read property 'push' of undefined
+Thu Sep 06 2018 16:16:31 GMT+0800 (China Standard Time): GET /?char=king%20henry%20vi
+	TypeError: Cannot read property 'push' of undefined

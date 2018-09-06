@@ -1,27 +1,21 @@
-//Dependancies
+//Libraries
 const express = require('express')
+
+//Local imports
 const f = require('../functions')
 const o = require('../objects')
 
-//Database
-const pg = require('knex')({
-	client: 'pg',
-	version: '10',
-	connection: {
-		host: '127.0.0.1',
-		user: 'horatio',
-		password: 'GoodnightSweetPrince',
-		database: 'ShakespearIO'
-	}
-});
 
-const characters = express.Router()
+const characters = express.Router() 
 
 characters.get('/', async function(req, res) {
 	try {
 		const response = new o.Response(req)
-		let characterList = await f.getCharacterList(req.query.char)
-		response.addData(characterList)
+		const { char } = req.query
+		const SQLParams = { char }
+		let characterList = await f.getCharacterList(SQLParams)
+		let formatted_characters = f.packCharacters(characterList)
+		response.addData(formatted_characters)
 		res.send(response)
 	} catch(e) {
 		f.logError(e, req, res)
@@ -31,13 +25,12 @@ characters.get('/', async function(req, res) {
 characters.get('/:play', async function(req, res) {
 	try {
 		const response = new o.Response(req)
-		const play_data = await f.getPlayData(req.params.play)
-		if(!play_data) {
-			response.Error(1)
-			res.status(400).send(response)
-		}
-		let characterList = await f.getCharacterList(req.query.char, play_data.id)
-		response.addData(characterList)
+		const { play } = req.params
+		const { char } = req.query
+		const SQLParams = { play, char }
+		let characterList = await f.getCharacterList(SQLParams)
+		let formatted_characters = f.packCharacters(characterList)
+		response.addData(formatted_characters)
 		res.send(response)
 	} catch(e) {
 		f.logError(e, req, res)
@@ -46,7 +39,9 @@ characters.get('/:play', async function(req, res) {
 
 
 characters.get('*', (req, res) => {
-	res.status(404).send("Invalid url")
+	const response = new o.Response(req)
+	response.Error('Invalid URL')
+	res.status(404).send(response)
 })
 
 module.exports = characters

@@ -1,5 +1,9 @@
-//Dependancies
+//Libraries
 const fs = require('fs')
+const _ = require('lodash')
+const Fuse = require('fuse.js')
+
+//Local Imports
 const o = require('./objects')
 
 
@@ -32,174 +36,88 @@ const logError = function(err, req, res) {
 		}
 	});
 	if(res) {
-		res.status(501)
-		res.send("Sorry!  Something went wrong...")
+		res.status(400).send(err)
 	}
 }
 module.exports.logError = logError
 
 
-const getCharName = async function(id) {
-	if(isNaN(id)) {
-		return id.toUpperCase()
-	} else {
-		try {
-			let charName = await pg('characters').select('name').where({id})
-			return charName[0].name
-		} catch(e) {
-			logError(e)
-		}
-	}
-}
-module.exports.getCharName = getCharName
+module.exports.searchText = function(list, searchTerm) {
+	const options = {
+		shouldSort: true,
+		findAllMatches: true,
+		threshold: 0.4,
+		location: 0,
+		distance: 100,
+		maxPatternLength: 50,
+		minMatchCharLength: 1,
+		keys: [ "line" ]
+	};
 
-const getScenes = async function(play_id, act) {
-	try {
-		let whereParams = {play_id}
-		if(act) {
-			whereParams.act = act
-		}
-
-		let scenes = await pg('text')
-			.select('play_id', 'act', 'scene')
-			.where(whereParams)
-			.groupBy('play_id', 'act', 'scene')
-			.orderByRaw('act, scene')
-		return scenes
-	} catch (e) {
-		logError(e)
-	}
-}
-module.exports.getScenes = getScenes
-
-
-const packSceneText = async function({play_id, act, scene, firstLine, lastLine}) {
-	const whereParams = { play_id, act, scene }
-	if(firstLine && !lastLine) {
-		whereParams.line_no = firstLine
-	}
-	try {
-		let dbLines
-		if(lastLine) {
-			dbLines	= await pg('text')
-				.where(whereParams)
-				.whereBetween('line_no', [firstLine, lastLine])
-				.orderBy('line_no')
-		} else {
-			dbLines = await pg('text')
-				.where(whereParams)
-				.orderBy('line_no')
-		}
-
-		let text = []
-		let currentCharId = dbLines[0].character_id
-		let currentBlock = o.speechBlock(dbLines[0].name)
-		for(let i = 0; i < dbLines.length; i++) {
-			if(dbLines[i].character_id !== currentCharId) {
-				text.push(currentBlock)
-				currentCharId = dbLines[i].character_id
-				currentBlock = o.speechBlock(dbLines[i].name)
-			}
-			currentBlock.lines.push({
-				line_no: dbLines[i].line_no,
-				line: dbLines[i].line
-			})
-		}
-		text.push(currentBlock)
-
-		return {
-			act,
-			scene,
-			text,
-		}
-	} catch(e) {
-		logError(e)
-	}
-}
-module.exports.packSceneText = packSceneText
-
-module.exports.packPlayText = async function(play_id, act) {
-	try {
-		const requestedScenes = await getScenes(play_id, act)
-		let play_text = []
-		for(let i = 0; i < requestedScenes.length; i++) {
-			play_text[i] = await packSceneText(requestedScenes[i])
-		}
-
-		return play_text
-	} catch(e) {
-		logError(e)
-	}
-}
-
-module.exports.getPlayData = async function(keyOrId) {
-	try {
-		let whereParams
-		if(isNaN(keyOrId)) {
-			whereParams = {key: keyOrId}
-		} else {
-			whereParams = {id: keyOrId}
-		}
-		let play_data = await pg('plays').select().where(whereParams)
-
-		return await play_data[0]
-	} catch(e) {
-		logError(e)
-	}
+	const fuse = new Fuse(list, options)
+	return fuse.search(searchTerm)
 }
 
 
-module.exports.getLines = async function(play_id, act, scene, firstLine, lastLine) {
-	try {
-		let requestedLines
-		if(lastLine) {
-			requestedLines = await pg('text').where({play_id, act, scene}).where('line_no', '>=', firstLine).where('line_no', '<=', lastLine)
-		} else {
-			requestedLines = await pg('text').where({play_id, act, scene, line_no: firstLine})
-		}
-	} catch(e) {
-		logError(e)
-	}
-}
-
-module.exports.charFilter = async function(play_text, character_id) {
-	if(character_id) {
-		try {
-			const character = await getCharName(character_id)
-			play_text = play_text.map(scene => {
-				scene.text = scene.text.filter(block => block.character === character)
-				return scene
-			})
-			play_text = play_text.filter(scene => scene.text.length)
-			return play_text
-		} catch(e) {
-			logError(e)
-		}
-	} else {
-		return play_text
-	}
-}
-
-module.exports.getCharacterList = async function(characterIdOrName, play_id) {
+module.exports.getPlays = async function(play) {
 	try {
 		let whereParams = {}
-		if(characterIdOrName) {
-			if(isNaN(characterIdOrName)) {
-				whereParams.name = characterIdOrName.toUpperCase()
+		if(play) {
+			if(isNaN(play)) {
+				whereParams.key = play
 			} else {
-				whereParams.id = characterIdOrName
+				whereParams.id = play
 			}
 		}
-		if(play_id) {
-			whereParams.play_id = play_id
+		let play_list = await pg('plays')
+			.select('full_name', 'id', 'key', 'year_published', 'description')
+			.where(whereParams)
+		return play_list
+	} catch(e) {
+		logError(e)
+	}
+}
+
+
+//Retrieves characters from db based on SQL parameters
+module.exports.getCharacterList = async function(SQLParams) {
+	try {
+		let whereParams = {}
+		if(SQLParams.char) {
+			if(isNaN(SQLParams.char)) {
+				whereParams.name = SQLParams.char.toUpperCase()
+			} else {
+				whereParams['characters.id'] = SQLParams.char
+			}
 		}
-		let charList = await pg('characters').where(whereParams).orderBy('id')
+		if(SQLParams.play) {
+			if(isNaN(SQLParams.play)) {
+				whereParams.key = SQLParams.play
+			} else {
+				whereParams.play_id = SQLParams.play
+			}
+		}
+		let charList = await await pg('characters')
+			.select('characters.id', 'characters.name', 'characters.age', 'characters.gender', 'characters.play_id', 'plays.key', 'plays.full_name')
+			.innerJoin('plays', 'plays.id', 'characters.play_id')
+			.where(whereParams)
+			.orderBy('characters.id')
 		return charList
 	} catch(e) {
 		logError(e)
 	}
 }
 
+//properly formats the data from getCharacters()
+module.exports.packCharacters = function (characters) {
+	let data = []
+	characters.forEach((char) => {
+		data.push(new o.Character(char))
+	})
+	return data
+}
+
+//Gets text from db, filtered by SQL parameters
 module.exports.getText = async function (SQLParams){
 	try {
 		let whereParams = {}
@@ -221,7 +139,7 @@ module.exports.getText = async function (SQLParams){
 		}
 		if(SQLParams.char) {
 			if(isNaN(SQLParams.char)) {
-				whereParams['character.name'] = SQLParams.char
+				whereParams['characters.name'] = SQLParams.char.toUpperCase()
 			} else {
 				whereParams.character_id = SQLParams.char
 			}
@@ -250,8 +168,12 @@ module.exports.getText = async function (SQLParams){
 
 //Takes properly ordered rows from the DB, and returns a sorted JS object
 module.exports.packLines = function(all_lines) {
+	if(_.isEmpty(all_lines)) {
+		return []
+	}
 	let formattedLines = []
 	let currentPlay = new o.Play(all_lines[0])
+	currentPlay.play_text = []
 	let currentScene = new o.Scene(all_lines[0])
 	let currentBlock = new o.SpeechBlock(all_lines[0])
 	currentBlock.lines.push({
@@ -276,6 +198,7 @@ module.exports.packLines = function(all_lines) {
 		if(all_lines[i].play_id !== currentPlay.play_id) {
 			formattedLines.push(currentPlay)
 			currentPlay = new o.Play(all_lines[i])
+			currentPlay.play_text = []
 		}
 		currentBlock.lines.push({
 			line_no: all_lines[i].line_no,

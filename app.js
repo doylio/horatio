@@ -1,6 +1,8 @@
-//Dependancies
+//Libraries
 const express = require('express')
 const fs = require('fs')
+
+//Local imports
 const f = require('./functions')
 
 //Database
@@ -24,7 +26,6 @@ const port = process.env.PORT || 3000;
 const text = require('./routers/text')
 const plays = require('./routers/plays')
 const characters = require('./routers/characters')
-const search = require('./routers/search')
 
 /*Middleware*/
 	//Server log
@@ -44,14 +45,15 @@ const search = require('./routers/search')
 	app.use('/text', text)
 	app.use('/plays', plays)
 	app.use('/characters', characters)
-	app.use('/search', search)
 
 
 //Server response actions
 
 app.get('/test', async function(req, res) {
 	try {
-		let data = req.query
+		let data = await pg('characters')
+			.select('characters.id', 'characters.name', 'characters.age', 'characters.gender', 'characters.play_id', 'plays.key', 'plays.full_name')
+			.innerJoin('plays', 'plays.id', 'characters.play_id')
 		res.send(data)
 	} catch(e) {
 		f.logError(e, req)
@@ -62,7 +64,9 @@ app.get('/test', async function(req, res) {
 
 //All other routes
 app.get('*', (req, res) => {
-	res.status(404).send("Invalid url")
+	const response = new o.Response(req)
+	response.Error('Invalid URL')
+	res.status(404).send(response)
 })
 
 

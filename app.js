@@ -4,6 +4,7 @@ const fs = require('fs')
 
 //Local imports
 const f = require('./functions')
+const o = require('./objects')
 
 //Database
 const pg = require('knex')({
@@ -21,11 +22,11 @@ const pg = require('knex')({
 const app = express();
 const port = process.env.PORT || 3000;
 
-
 //Routers
 const text = require('./routers/text')
-const plays = require('./routers/plays')
-const characters = require('./routers/characters')
+const play = require('./routers/play')
+const character = require('./routers/character')
+const monologue = require('./routers/monologue')
 
 /*Middleware*/
 	//Server log
@@ -41,27 +42,13 @@ const characters = require('./routers/characters')
 		next()
 	})
 
-	//Routes
-	app.use('/text', text)
-	app.use('/plays', plays)
-	app.use('/characters', characters)
-
-
-//Server response actions
-
-app.get('/test', async function(req, res) {
-	try {
-		let data = await pg('characters')
-			.select('characters.id', 'characters.name', 'characters.age', 'characters.gender', 'characters.play_id', 'plays.key', 'plays.full_name')
-			.innerJoin('plays', 'plays.id', 'characters.play_id')
-		res.send(data)
-	} catch(e) {
-		f.logError(e, req)
-	}
-})
-
-
-
+//Routes
+app.use('/text', text)
+app.use('/play', play)
+app.use('/character', character)
+app.use('/monologue', monologue)
+app.use('/', express.static('public'))
+ 
 //All other routes
 app.get('*', (req, res) => {
 	const response = new o.Response(req)
@@ -69,8 +56,7 @@ app.get('*', (req, res) => {
 	res.status(404).send(response)
 })
 
-
-//Listening on port
+//Start server
 app.listen(port, () => {
 	console.log(`Server is listening on port ${port}`)
 })

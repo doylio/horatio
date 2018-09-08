@@ -80,21 +80,21 @@ module.exports.getPlays = async function(play) {
 
 
 //Retrieves characters from db based on SQL parameters
-module.exports.getCharacterList = async function(SQLParams) {
+module.exports.getCharacterList = async function({ char, play }) {
 	try {
 		let whereParams = {}
-		if(SQLParams.char) {
-			if(isNaN(SQLParams.char)) {
-				whereParams.name = SQLParams.char.toUpperCase()
+		if(char) {
+			if(isNaN(char)) {
+				whereParams.name = char.toUpperCase()
 			} else {
-				whereParams['characters.id'] = SQLParams.char
+				whereParams['characters.id'] = char
 			}
 		}
-		if(SQLParams.play) {
-			if(isNaN(SQLParams.play)) {
-				whereParams.key = SQLParams.play
+		if(play) {
+			if(isNaN(play)) {
+				whereParams.key = play
 			} else {
-				whereParams.play_id = SQLParams.play
+				whereParams.play_id = play
 			}
 		}
 		let charList = await await pg('characters')
@@ -118,40 +118,40 @@ module.exports.packCharacters = function (characters) {
 }
 
 //Gets text from db, filtered by SQL parameters
-module.exports.getText = async function (SQLParams){
+const getText = async function ({ play, act, scene, first_line, last_line, char }){
 	try {
 		let whereParams = {}
-		if(SQLParams.play) {
-			if(isNaN(SQLParams.play)) {
-				whereParams.key = SQLParams.play
+		if(play) {
+			if(isNaN(play)) {
+				whereParams.key = play
 			} else {
-				whereParams['text.play_id'] = SQLParams.play
+				whereParams['text.play_id'] = play
 			}
 		}
-		if(SQLParams.act) {
-			whereParams.act = SQLParams.act
+		if(act) {
+			whereParams.act = act
 		}
-		if(SQLParams.scene) {
-			whereParams.scene = SQLParams.scene
+		if(scene) {
+			whereParams.scene = scene
 		}
-		if(SQLParams.firstLine && !SQLParams.lastLine) {
-			whereParams.line_no = SQLParams.firstLine
+		if(first_line && !last_line) {
+			whereParams.line_no = first_line
 		}
-		if(SQLParams.char) {
-			if(isNaN(SQLParams.char)) {
-				whereParams['characters.name'] = SQLParams.char.toUpperCase()
+		if(char) {
+			if(isNaN(char)) {
+				whereParams['characters.name'] = char.toUpperCase()
 			} else {
-				whereParams.character_id = SQLParams.char
+				whereParams.character_id = char
 			}
 		}
 		console.log(whereParams)
 		let text
-		if(SQLParams.lastLine) {
+		if(last_line) {
 			text = await pg('text')
 				.innerJoin('plays', 'plays.id', 'text.play_id')
 				.innerJoin('characters', 'characters.id', 'text.character_id')
 				.where(whereParams)
-				.whereBetween('line_no', [SQLParams.firstLine, SQLParams.lastLine])
+				.whereBetween('line_no', [first_line, last_line])
 				.orderByRaw('text.play_id, text.act, text.scene, text.line_no')		
 		} else {
 			text = await pg('text')
@@ -165,6 +165,7 @@ module.exports.getText = async function (SQLParams){
 		logError(e)
 	}
 }
+module.exports.getText = getText
 
 //Takes properly ordered rows from the DB, and returns a sorted JS object
 module.exports.packLines = function(all_lines) {
@@ -210,3 +211,50 @@ module.exports.packLines = function(all_lines) {
 	formattedLines.push(currentPlay)
 	return formattedLines
 }
+
+
+module.exports.getMonologues = async function({play, char}) {
+	try {
+		let whereParams = {}
+		if(play) {
+			if(isNaN(play)) {
+				whereParams.key = play
+			} else {
+				whereParams.play_id = play
+			}
+		}
+		if(char) {
+			if(isNaN(char)) {
+				whereParams['characters.name'] = char.toUpperCase()
+			} else {
+				whereParams.character_id = char
+			}
+		}
+		if(gender){
+			whereParams.gender = gender
+		}
+		let monologues = await pg('monologues') 
+			.select('monologues.play_id as play', 'act', 'scene', 'first_line', 'last_line')
+			.innerJoin('plays', 'plays.id', 'monologues.play_id')
+			.innerJoin('characters', 'characters.id', 'monologues.character_id')
+			.where(whereParams)
+		return monologues
+
+	} catch(e) {
+		logError(e)
+	}
+}
+
+module.exports.getMonologueText = async function (monologues){
+	try {
+		let text = []
+		for(let i = 0; i < monologues.length; i++) {
+			let someText = await getText(monologues[i])
+			text.push(someText)
+		}
+		return _.flatten(text)
+	} catch(e) {
+		logError(e)
+	}
+}
+

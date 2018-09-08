@@ -89,9 +89,9 @@ text.get('/:play/:act([0-9]+)/:scene([0-9]+)/:lines([0-9]+|[0-9]+-[0-9]+)', asyn
 	try {
 		const response = new o.Response(req)		
 		const { play, act, scene } = req.params
-		const [ firstLine, lastLine ] = req.params.lines.split('-')
+		const [ first_line, last_line ] = req.params.lines.split('-')
 		const { char, search } = req.query
-		const SQLParams = { play, act, scene, firstLine, lastLine, char }
+		const SQLParams = { play, act, scene, first_line, last_line, char }
 		let rawData = await f.getText(SQLParams)
 		if(search) {
 			rawData = f.searchText(rawData, search)

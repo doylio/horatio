@@ -1408,3 +1408,17 @@ Thu Sep 06 2018 16:16:11 GMT+0800 (China Standard Time): GET /?char=fool
 	TypeError: Cannot read property 'push' of undefined
 Thu Sep 06 2018 16:16:31 GMT+0800 (China Standard Time): GET /?char=king%20henry%20vi
 	TypeError: Cannot read property 'push' of undefined
+Sat Sep 08 2018 14:57:10 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene", "firstLine", "lastLine" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - column reference "play_id" is ambiguous
+Sat Sep 08 2018 15:43:10 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene", "firstLine", "lastLine" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - column reference "play_id" is ambiguous
+Sat Sep 08 2018 15:45:17 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "firstLine", "lastLine" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - column "firstLine" does not exist
+Sat Sep 08 2018 15:45:37 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - permission denied for relation monologues
+Sat Sep 08 2018 15:46:11 GMT+0800 (China Standard Time)
+	error: select * from "monologues" - permission denied for relation monologues
+Sat Sep 08 2018 15:51:01 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "character_id" = $1 - invalid input syntax for integer: "hamlet"
+Sat Sep 08 2018 15:51:36 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "character"."name" = $1 - missing FROM-clause entry for table "character"

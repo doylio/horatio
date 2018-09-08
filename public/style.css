@@ -1,0 +1,58 @@
+@font-face {
+	font-family: 'HamletOrNot';
+	src:
+		url('fonts/HamletOrNot.eot')
+		format('embedded-opentype');
+	src:
+		url('fonts/HamletOrNot.otf')
+		format('opentype');
+	src:
+		url('fonts/HamletOrNot.ttf')
+		format('truetype');
+}
+
+body {
+	background-image: url('pics/Worn-Paper-Texture.jpg');
+	background-repeat: repeat-y;
+	background-size: cover;
+}
+
+header {
+	margin: auto;
+	width: 80%;
+	font-family: 'HamletOrNot', serif;
+	text-align: center;
+	border-bottom: 2px solid black;
+}
+
+header h1 {
+	text-transform: uppercase;
+	font-family: 'HamletOrNot', serif;
+	font-size: 80px;
+	letter-spacing: 33px;
+	margin: 0;
+}
+
+header h2 {
+	font-size: 30px;
+	letter-spacing: 5px;
+}
+
+#divider {
+	margin: auto;
+	height: 200px;
+	width: 80%;
+}
+
+#divider img {
+	width: 100%;
+	height: 100%;
+}
+
+#description {
+	padding: 20px;
+	width: 80%;
+	margin: auto;
+	font-size: 30px;
+	font-family: serif;
+}

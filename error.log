@@ -1422,3 +1422,7 @@ Sat Sep 08 2018 15:51:01 GMT+0800 (China Standard Time)
 	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "character_id" = $1 - invalid input syntax for integer: "hamlet"
 Sat Sep 08 2018 15:51:36 GMT+0800 (China Standard Time)
 	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "character"."name" = $1 - missing FROM-clause entry for table "character"
+Sun Sep 09 2018 18:43:06 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'length' of undefined
+Sun Sep 09 2018 18:43:06 GMT+0800 (China Standard Time)
+	ReferenceError: gender is not defined

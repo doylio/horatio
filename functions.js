@@ -230,9 +230,9 @@ module.exports.getMonologues = async function({play, char}) {
 				whereParams.character_id = char
 			}
 		}
-		if(gender){
-			whereParams.gender = gender
-		}
+		// if(gender){
+		// 	whereParams.gender = gender
+		// }
 		let monologues = await pg('monologues') 
 			.select('monologues.play_id as play', 'act', 'scene', 'first_line', 'last_line')
 			.innerJoin('plays', 'plays.id', 'monologues.play_id')

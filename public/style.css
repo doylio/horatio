@@ -24,7 +24,7 @@
 body {
 	background-image: url('pics/Worn-Paper-Texture.jpg');
 	background-repeat: repeat-y;
-	background-size: cover;
+	background-size: contain;
 }
 
 header {
@@ -176,4 +176,14 @@ code {
 
 .p-desc {
 	margin-bottom: 10px;
+}
+
+footer {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 20px;
+}
+
+footer div {
+	background-color: white;
 }

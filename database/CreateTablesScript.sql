@@ -1,156 +1,206 @@
-CREATE DATABASE "ShakespearIO"
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'English_United States.1252'
-    LC_CTYPE = 'English_United States.1252'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
+-- Database: ShakespearIO
 
--- DROP SCHEMA public ;
+    -- DROP DATABASE "ShakespearIO";
 
-CREATE SCHEMA public
-    AUTHORIZATION postgres;
+    CREATE DATABASE "ShakespearIO"
+        WITH 
+        OWNER = postgres
+        ENCODING = 'UTF8'
+        LC_COLLATE = 'English_United States.1252'
+        LC_CTYPE = 'English_United States.1252'
+        TABLESPACE = pg_default
+        CONNECTION LIMIT = -1;
 
-COMMENT ON SCHEMA public
-    IS 'standard public schema';
+-- SCHEMA: public
 
-GRANT ALL ON SCHEMA public TO postgres;
+    -- DROP SCHEMA public ;
 
-GRANT ALL ON SCHEMA public TO PUBLIC;
+    CREATE SCHEMA public
+        AUTHORIZATION postgres;
 
--- DROP USER horatio;
+    COMMENT ON SCHEMA public
+        IS 'standard public schema';
 
-CREATE USER horatio WITH
-  LOGIN
-  NOSUPERUSER
-  INHERIT
-  NOCREATEDB
-  NOCREATEROLE
-  NOREPLICATION;
+    GRANT ALL ON SCHEMA public TO postgres;
 
--- DROP TABLE public.characters;
+    GRANT ALL ON SCHEMA public TO PUBLIC;
 
-CREATE TABLE public.characters
-(
-    id integer NOT NULL DEFAULT nextval('characters_id_seq'::regclass),
-    play_id integer,
-    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    age character varying(255) COLLATE pg_catalog."default",
-    gender character varying(255) COLLATE pg_catalog."default",
-    description text COLLATE pg_catalog."default",
-    CONSTRAINT characters_pkey PRIMARY KEY (id),
-    CONSTRAINT characters_play_id_fkey FOREIGN KEY (play_id)
-        REFERENCES public.plays (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+    -- DROP USER horatio;
 
-ALTER TABLE public.characters
-    OWNER to postgres;
+    CREATE USER horatio WITH
+      LOGIN
+      NOSUPERUSER
+      INHERIT
+      NOCREATEDB
+      NOCREATEROLE
+      NOREPLICATION;
 
-GRANT ALL ON TABLE public.characters TO horatio;
+-- SEQUENCE: public.characters_id_seq
 
-GRANT ALL ON TABLE public.characters TO postgres;
+    -- DROP SEQUENCE public.characters_id_seq;
 
+    CREATE SEQUENCE public.characters_id_seq;
 
--- DROP TABLE public.monologues;
+    ALTER SEQUENCE public.characters_id_seq
+        OWNER TO postgres;
 
-CREATE TABLE public.monologues
-(
-    id integer NOT NULL DEFAULT nextval('monologues_id_seq'::regclass),
-    character_id integer,
-    play_id integer,
-    act integer,
-    scene integer,
-    first_line integer,
-    last_line integer,
-    CONSTRAINT monologues_pkey PRIMARY KEY (id),
-    CONSTRAINT monologue_first_line FOREIGN KEY (first_line, scene, act, play_id)
-        REFERENCES public.text (line_no, scene, act, play_id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT monologue_last_line FOREIGN KEY (last_line, scene, act, play_id)
-        REFERENCES public.text (line_no, scene, act, play_id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT monologues_character_id_fkey FOREIGN KEY (character_id)
-        REFERENCES public.characters (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+    GRANT ALL ON SEQUENCE public.characters_id_seq TO postgres;
 
-ALTER TABLE public.monologues
-    OWNER to postgres;
+    GRANT ALL ON SEQUENCE public.characters_id_seq TO horatio;
 
-GRANT ALL ON TABLE public.monologues TO horatio;
+-- SEQUENCE: public.monologues_id_seq
 
-GRANT ALL ON TABLE public.monologues TO postgres;
+    -- DROP SEQUENCE public.monologues_id_seq;
+
+    CREATE SEQUENCE public.monologues_id_seq;
+
+    ALTER SEQUENCE public.monologues_id_seq
+        OWNER TO postgres;
+
+    GRANT ALL ON SEQUENCE public.monologues_id_seq TO postgres;
+
+    GRANT ALL ON SEQUENCE public.monologues_id_seq TO horatio;
+
+-- SEQUENCE: public.plays_id_seq
+
+    -- DROP SEQUENCE public.plays_id_seq;
+
+    CREATE SEQUENCE public.plays_id_seq;
+
+    ALTER SEQUENCE public.plays_id_seq
+        OWNER TO postgres;
+
+    GRANT ALL ON SEQUENCE public.plays_id_seq TO postgres;
+
+    GRANT ALL ON SEQUENCE public.plays_id_seq TO horatio;
 
 
--- DROP TABLE public.plays;
+-- Table: public.plays
 
-CREATE TABLE public.plays
-(
-    id integer NOT NULL DEFAULT nextval('plays_id_seq'::regclass),
-    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    year_published character varying(255) COLLATE pg_catalog."default",
-    description text COLLATE pg_catalog."default",
-    CONSTRAINT plays_pkey PRIMARY KEY (id)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+    -- DROP TABLE public.plays;
 
-ALTER TABLE public.plays
-    OWNER to postgres;
+    CREATE TABLE public.plays
+    (
+        id integer NOT NULL DEFAULT nextval('plays_id_seq'::regclass),
+        key character varying(255) COLLATE pg_catalog."default" NOT NULL,
+        year_published character varying(255) COLLATE pg_catalog."default",
+        description text COLLATE pg_catalog."default",
+        full_name text COLLATE pg_catalog."default",
+        CONSTRAINT plays_pkey PRIMARY KEY (id)
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
 
-GRANT ALL ON TABLE public.plays TO horatio;
+    ALTER TABLE public.plays
+        OWNER to postgres;
 
-GRANT ALL ON TABLE public.plays TO postgres;
+    GRANT ALL ON TABLE public.plays TO horatio;
+
+    GRANT ALL ON TABLE public.plays TO postgres;
+
+-- Table: public.characters
+
+    -- DROP TABLE public.characters;
+
+    CREATE TABLE public.characters
+    (
+        id integer NOT NULL DEFAULT nextval('characters_id_seq'::regclass),
+        play_id integer,
+        name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+        age character varying(255) COLLATE pg_catalog."default",
+        gender character varying(255) COLLATE pg_catalog."default",
+        description text COLLATE pg_catalog."default",
+        CONSTRAINT characters_pkey PRIMARY KEY (id),
+        CONSTRAINT characters_play_id_fkey FOREIGN KEY (play_id)
+            REFERENCES public.plays (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+    ALTER TABLE public.characters
+        OWNER to postgres;
+
+    GRANT ALL ON TABLE public.characters TO horatio;
+
+    GRANT ALL ON TABLE public.characters TO postgres;
+
 
 -- Table: public.text
 
--- DROP TABLE public.text;
+    -- DROP TABLE public.text;
 
-CREATE TABLE public.text
-(
-    play_id integer NOT NULL,
-    act integer NOT NULL,
-    scene integer NOT NULL,
-    line_no integer NOT NULL,
-    character_id integer,
-    line text COLLATE pg_catalog."default",
-    CONSTRAINT text_pkey PRIMARY KEY (play_id, act, scene, line_no),
-    CONSTRAINT text_character_id_fkey FOREIGN KEY (character_id)
-        REFERENCES public.characters (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT text_play_id_fkey FOREIGN KEY (play_id)
-        REFERENCES public.plays (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT text_act_check CHECK (act > 0 AND act < 6),
-    CONSTRAINT text_scene_check CHECK (scene > 0),
-    CONSTRAINT text_line_no_check CHECK (line_no > 0)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+    CREATE TABLE public.text
+    (
+        play_id integer NOT NULL,
+        act integer NOT NULL,
+        scene integer NOT NULL,
+        line_no integer NOT NULL,
+        character_id integer,
+        line text COLLATE pg_catalog."default",
+        CONSTRAINT text_pkey PRIMARY KEY (play_id, act, scene, line_no),
+        CONSTRAINT text_character_id_fkey FOREIGN KEY (character_id)
+            REFERENCES public.characters (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+        CONSTRAINT text_play_id_fkey FOREIGN KEY (play_id)
+            REFERENCES public.plays (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+        CONSTRAINT text_line_no_check CHECK (line_no > 0)
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
 
-ALTER TABLE public.text
-    OWNER to postgres;
+    ALTER TABLE public.text
+        OWNER to postgres;
 
-GRANT ALL ON TABLE public.text TO horatio;
+    GRANT ALL ON TABLE public.text TO horatio;
 
-GRANT ALL ON TABLE public.text TO horatio;
+    GRANT ALL ON TABLE public.text TO postgres;
+
+-- Table: public.monologues
+
+    -- DROP TABLE public.monologues;
+
+    CREATE TABLE public.monologues
+    (
+        id integer NOT NULL DEFAULT nextval('monologues_id_seq'::regclass),
+        character_id integer,
+        play_id integer,
+        act integer,
+        scene integer,
+        first_line integer,
+        last_line integer,
+        CONSTRAINT monologues_pkey PRIMARY KEY (id),
+        CONSTRAINT monologue_first_line FOREIGN KEY (first_line, scene, act, play_id)
+            REFERENCES public.text (line_no, scene, act, play_id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+        CONSTRAINT monologue_last_line FOREIGN KEY (last_line, scene, act, play_id)
+            REFERENCES public.text (line_no, scene, act, play_id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION,
+        CONSTRAINT monologues_character_id_fkey FOREIGN KEY (character_id)
+            REFERENCES public.characters (id) MATCH SIMPLE
+            ON UPDATE NO ACTION
+            ON DELETE NO ACTION
+    )
+    WITH (
+        OIDS = FALSE
+    )
+    TABLESPACE pg_default;
+
+    ALTER TABLE public.monologues
+        OWNER to postgres;
+
+    GRANT ALL ON TABLE public.monologues TO horatio;
+
+    GRANT ALL ON TABLE public.monologues TO postgres;

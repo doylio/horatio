@@ -8,7 +8,7 @@ const pg = require('knex')({
 	client: 'pg',
 	version: '10',
 	connection: {
-		host: '127.0.0.1',
+		host: '45.79.110.79', //Linode IP address
 		user: 'horatio',
 		password: 'GoodnightSweetPrince',
 		database: 'ShakespearIO'

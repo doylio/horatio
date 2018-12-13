@@ -11,7 +11,7 @@ const pg = require('knex')({
 		host: 'localhost', //Linode IP address
 		user: 'horatio',
 		password: 'GoodNightSweetPrince',
-		database: 'ShakespearIO'
+		database: 'shakespeario'
 	}
 });
 

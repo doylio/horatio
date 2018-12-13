@@ -127,7 +127,7 @@ const correctionFunctions = [
 ]
 
 
-Main Function
+// Main Function
 Promise.all(correctionFunctions)
 .then(fillInGaps)
 .then(removeSpacesInCharNames)

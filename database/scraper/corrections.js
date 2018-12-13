@@ -24,10 +24,10 @@ const pg = require('knex')({
 	client: 'pg',
 	version: '10',
 	connection: {
-		host: '127.0.0.1',
+		host: 'localhost',
 		user: 'horatio',
-		password: 'GoodnightSweetPrince',
-		database: 'ShakespearIO'
+		password: 'GoodNightSweetPrince',
+		database: 'shakespeario'
 	}
 });
 

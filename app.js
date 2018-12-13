@@ -19,8 +19,7 @@ const pg = require('knex')({
 });
 
 //Server declarations
-const app = express();
-const port = process.env.PORT || 3000;
+const app = express.Router();
 
 //Routers
 const text = require('./routers/text')
@@ -54,9 +53,4 @@ app.get('*', (req, res) => {
 	const response = new o.Response(req)
 	response.Error('Invalid URL')
 	res.status(404).send(response)
-})
-
-//Start server
-app.listen(port, () => {
-	console.log(`Server is listening on port ${port}`)
 })

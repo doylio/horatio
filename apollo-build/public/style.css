@@ -1,0 +1,189 @@
+@font-face {
+	font-family: 'HamletOrNot';
+	src:
+		url('fonts/HamletOrNot.eot') format('embedded-opentype'),
+		url('fonts/HamletOrNot.woff2') format('woff2'),
+		url('fonts/HamletOrNot.woff') format('woff'),
+		url('fonts/HamletOrNot.otf') format('opentype'),
+		url('fonts/HamletOrNot.ttf') format('truetype'),
+		url('fonts/HamletOrNot.svg') format('svg');
+}
+
+@font-face {
+	font-family: 'OldStyle';
+	src:
+		url('fonts/OldStyle.eot') format('embedded-opentype'),
+		url('fonts/OldStyle.woff2') format('woff2'),
+		url('fonts/OldStyle.woff') format('woff'),
+		url('fonts/OldStyle.otf') format('opentype'),
+		url('fonts/OldStyle.ttf') format('truetype'),
+		url('fonts/OldStyle.svg') format('svg');
+}
+
+
+body {
+	background-image: url('pics/Worn-Paper-Texture.jpg');
+	background-repeat: repeat-y;
+	background-size: contain;
+}
+
+header {
+	margin: auto;
+	width: 80%;
+	font-family: 'HamletOrNot', serif;
+	text-align: center;
+	border-bottom: 2px solid black;
+}
+
+header h1 {
+	text-transform: uppercase;
+	font-family: 'HamletOrNot', serif;
+	font-size: 80px;
+	letter-spacing: 33px;
+	margin: 0;
+}
+
+header h2 {
+	font-size: 30px;
+	letter-spacing: 5px;
+}
+
+#icon-container {
+	max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.spacer {
+	max-width: 20px;
+}
+
+.icon-box {
+	margin: 20px 0;
+	width: 200px;
+	text-align: center;
+	font-family: OldStyle, Times, serif;
+	font-size: 20px;
+	letter-spacing: 4px;
+}
+
+.icon-box div {
+	margin: 10px auto;
+	height: 100px;
+	width: 100px;
+	padding: 10px;
+	border: 5px solid black;
+	border-radius: 100%;
+}
+
+.icon-box h3 {
+	margin: 0;
+}
+
+.icon-box img {
+	margin-top: 8px;
+	height: 80px;
+}
+
+#divider {
+	margin: auto;
+	height: auto;
+	max-width: 1300px;
+}
+
+#divider img {
+	width: 100%;
+	height: 100%;
+}
+
+#description {
+	padding: 20px;
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-size: 40px;
+	font-family: OldStyle, serif;
+}
+
+content {
+	border-top: 2px solid black;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	background-color: rgba(255, 211, 159, 0.5);
+	max-width: 1200px;
+
+}
+
+#documentation {
+	padding: 20px;
+	max-width: 1200px;
+	font-family: Times, serif;
+}
+#documentation h3 {
+	font-size: 50px;
+	margin: 40px 0;
+}
+
+#documentation h4 {
+	font-size: 35px;
+	margin: 40px 0 30px 0;
+}
+
+#documentation h5 {
+	font-size: 25px;
+	margin: 20px 0;
+}
+
+#documentation h6 {
+	font-size: 22px;
+	margin: 10px;
+}
+
+#documentation {
+	font-size: 20px;
+}
+
+pre, code {
+    background: #CE8F47;
+    border: 1px solid black;
+    border-radius: 0.2em;
+    font-family: monospace;
+}
+
+pre {
+	text-indent: 40px;
+    padding: 15px;
+    overflow-wrap: break-word;
+}
+
+code {
+    padding: 0 0.35em;
+}
+.parameter {
+	list-style: none;
+}
+
+.name {
+	font-weight: bold;
+}
+
+.type {
+	font-style: italic;
+}
+
+.p-desc {
+	margin-bottom: 10px;
+}
+
+footer {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 20px;
+}
+
+footer div {
+	background-color: white;
+}

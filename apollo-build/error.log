@@ -1,0 +1,1428 @@
+Fri Aug 31 2018 15:13:03 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:13:14 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:15:14 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:17:14 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:19:14 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:21:19 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:23:49 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:26:49 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 15:33:49 GMT+0800 (China Standard Time): GET /play-keys
+	Error: Unable to acquire a connection
+Fri Aug 31 2018 18:39:50 GMT+0800 (China Standard Time): GET /260/chars
+	TypeError: The operator "undefined" is not permitted
+Fri Aug 31 2018 18:39:55 GMT+0800 (China Standard Time): GET /260/chars
+	TypeError: The operator "undefined" is not permitted
+Fri Aug 31 2018 18:40:48 GMT+0800 (China Standard Time): GET /260/chars
+	TypeError: The operator "undefined" is not permitted
+Fri Aug 31 2018 18:41:04 GMT+0800 (China Standard Time): GET /260/chars
+	TypeError: The operator "undefined" is not permitted
+Fri Aug 31 2018 18:41:23 GMT+0800 (China Standard Time): GET /260/chars
+	TypeError: The operator "undefined" is not permitted
+Sat Sep 01 2018 10:37:43 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ?
+Sat Sep 01 2018 10:38:10 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ?
+Sat Sep 01 2018 10:38:15 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ?
+Sat Sep 01 2018 10:40:15 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ?
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:12 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:11:29 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:07 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 11:15:36 GMT+0800 (China Standard Time)
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "text" where "play_id" = ? and "act" = ? and "scene" = ? order by "line_no" asc
+Sat Sep 01 2018 12:15:12 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:15:12 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:17:12 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:17:12 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:19:12 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:19:12 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:19:23 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:19:23 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:19:26 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:19:26 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:19:47 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:19:47 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:20:56 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:20:56 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:21:08 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:21:08 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:21:29 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:21:29 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:21:57 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:21:57 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:22:21 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:22:21 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:22:43 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:22:43 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:22:54 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:22:54 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:23:39 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:23:39 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:23:39 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:23:50 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:23:50 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:23:50 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:23:55 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:23:59 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:23:59 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:24:09 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:24:29 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:24:38 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:24:38 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:24:59 GMT+0800 (China Standard Time): GET /test
+	ReferenceError: getScenes is not defined
+Sat Sep 01 2018 12:26:20 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:26:20 GMT+0800 (China Standard Time): GET /260/4
+	TypeError: Cannot read property 'map' of undefined
+Sat Sep 01 2018 12:26:27 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:26:31 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:29:11 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:29:38 GMT+0800 (China Standard Time)
+	ReferenceError: where is not defined
+Sat Sep 01 2018 12:30:00 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene" from "text" where "whereObj" = $1 group by "play_id", "act", "scene" order by "act" asc - column "whereObj" does not exist
+Sat Sep 01 2018 12:30:18 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene" from "text" where "whereObj" = $1 group by "play_id", "act", "scene" order by "act" asc - column "whereObj" does not exist
+Sat Sep 01 2018 13:06:22 GMT+0800 (China Standard Time): GET /270/
+	ReferenceError: scenes is not defined
+Sat Sep 01 2018 13:06:37 GMT+0800 (China Standard Time): GET /270/
+	ReferenceError: scenes is not defined
+Sat Sep 01 2018 13:06:45 GMT+0800 (China Standard Time): GET /270/
+	ReferenceError: scenes is not defined
+Sat Sep 01 2018 13:07:08 GMT+0800 (China Standard Time): GET /270/
+	ReferenceError: scenes is not defined
+Sat Sep 01 2018 13:07:12 GMT+0800 (China Standard Time): GET /270/
+	ReferenceError: scenes is not defined
+Sat Sep 01 2018 13:22:19 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:22:40 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:22:45 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:23:37 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:24:58 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:48:46 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:48:46 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:49:23 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:49:23 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:50:25 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:50:25 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:50:56 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:50:56 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:51:33 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:51:33 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:52:16 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:52:16 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:52:30 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:52:30 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:54:30 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:54:30 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:56:50 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:56:50 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:57:22 GMT+0800 (China Standard Time)
+	ReferenceError: isNan is not defined
+Sat Sep 01 2018 13:57:22 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'id' of undefined
+Sat Sep 01 2018 13:57:48 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 13:58:01 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 13:58:16 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 13:58:32 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:00 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:06 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:50 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:46:51 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:47:16 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:11 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:27 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:48:28 GMT+0800 (China Standard Time)
+	ReferenceError: obj is not defined
+Sat Sep 01 2018 14:50:17 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene" from "text" where "play_id" = $1 group by "play_id", "act", "scene" order by "act, scene" asc - column "act, scene" does not exist
+Sat Sep 01 2018 14:50:17 GMT+0800 (China Standard Time): GET /270
+	TypeError: Cannot read property 'length' of undefined
+Sat Sep 01 2018 14:56:33 GMT+0800 (China Standard Time): GET /270
+	TypeError: o.playWrap is not a constructor
+Sat Sep 01 2018 15:54:12 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:54:12 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:54:45 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:54:45 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:54:50 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:54:50 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:55:00 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:55:00 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:56:00 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:56:00 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:56:04 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:56:04 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:56:22 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:56:22 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:56:30 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:56:30 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:56:54 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:56:54 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:58:54 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:58:54 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:59:33 GMT+0800 (China Standard Time): GET /test
+	TypeError: f.packPlayData is not a function
+Sat Sep 01 2018 15:59:37 GMT+0800 (China Standard Time): GET /test
+	TypeError: f.packPlayData is not a function
+Sat Sep 01 2018 15:59:46 GMT+0800 (China Standard Time): GET /test
+	TypeError: f.packPlayData is not a function
+Sat Sep 01 2018 15:59:51 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:59:51 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 15:59:59 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 15:59:59 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:00:14 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 16:00:14 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:00:23 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:00:23 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 16:00:43 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 16:00:43 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:00:52 GMT+0800 (China Standard Time)
+	ReferenceError: f is not defined
+Sat Sep 01 2018 16:00:52 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:01:03 GMT+0800 (China Standard Time)
+	ReferenceError: getScenes is not defined
+Sat Sep 01 2018 16:01:03 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:01:27 GMT+0800 (China Standard Time)
+	ReferenceError: getScenes is not defined
+Sat Sep 01 2018 16:01:27 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:02:06 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:02:36 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:04:41 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:06:41 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:09:11 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:12:11 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:14:11 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:21:11 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:23:11 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:35:11 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:36:30 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:36:44 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:37:18 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:39:18 GMT+0800 (China Standard Time): GET /270
+	ReferenceError: data is not defined
+Sat Sep 01 2018 16:46:10 GMT+0800 (China Standard Time): GET /270/5/1
+	ReferenceError: response0 is not defined
+Sat Sep 01 2018 16:46:38 GMT+0800 (China Standard Time): GET /270/5/1
+	ReferenceError: response0 is not defined
+Sat Sep 01 2018 16:47:07 GMT+0800 (China Standard Time): GET /270/5/1
+	ReferenceError: response0 is not defined
+Sat Sep 01 2018 16:47:24 GMT+0800 (China Standard Time): GET /270/5/1
+	ReferenceError: response0 is not defined
+Sat Sep 01 2018 18:34:03 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:34:07 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:41:16 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:46:30 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 18:49:05 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'character_id' of undefined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:03 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sat Sep 01 2018 19:00:04 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:46 GMT+0800 (China Standard Time): GET /test
+	Error: Undefined binding(s) detected when compiling SELECT query: select * from "plays" where "id" = ?
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:54 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:46:55 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:02 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:47:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:29 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:05 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:06 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:50:16 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:00 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:00 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:00 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:00 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:00 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:00 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 09:51:01 GMT+0800 (China Standard Time)
+	ReferenceError: scene is not defined
+Sun Sep 02 2018 10:50:42 GMT+0800 (China Standard Time): GET /pericles/4/
+	ReferenceError: next is not defined
+Sun Sep 02 2018 10:50:45 GMT+0800 (China Standard Time): GET /pericles/?char=8115
+	ReferenceError: next is not defined
+Sun Sep 02 2018 10:51:23 GMT+0800 (China Standard Time): GET /pericles/?char=8115
+	ReferenceError: next is not defined
+Sun Sep 02 2018 10:51:49 GMT+0800 (China Standard Time): GET /pericles/?char=8115
+	ReferenceError: next is not defined
+Sun Sep 02 2018 10:51:57 GMT+0800 (China Standard Time): GET /pericles/?char=8115
+	ReferenceError: next is not defined
+Sun Sep 02 2018 11:07:17 GMT+0800 (China Standard Time): GET /pericles/?char=8115
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:07:40 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:09:40 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:10:12 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:10:36 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:10:40 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:11:04 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:12:17 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:13:16 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:13:25 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:13:36 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:15:20 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:16:45 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:17:08 GMT+0800 (China Standard Time): GET /pericles/
+	TypeError: Assignment to constant variable.
+Sun Sep 02 2018 11:21:18 GMT+0800 (China Standard Time)
+	TypeError: play_text.map is not a function
+Sun Sep 02 2018 11:21:23 GMT+0800 (China Standard Time)
+	TypeError: play_text.map is not a function
+Sun Sep 02 2018 12:49:30 GMT+0800 (China Standard Time)
+	ReferenceError: play_text is not defined
+Sun Sep 02 2018 12:49:36 GMT+0800 (China Standard Time)
+	ReferenceError: play_text is not defined
+Sun Sep 02 2018 12:50:15 GMT+0800 (China Standard Time)
+	ReferenceError: play_text is not defined
+Sun Sep 02 2018 16:59:25 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 16:59:57 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:00:08 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:00:20 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:01:16 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:03:46 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:03:56 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:04:17 GMT+0800 (China Standard Time): GET /macbeht
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:06:10 GMT+0800 (China Standard Time): GET /mcd
+	TypeError: Cannot read property 'id' of undefined
+Sun Sep 02 2018 17:12:28 GMT+0800 (China Standard Time): GET /hamle/
+	TypeError: response.Error is not a function
+Sun Sep 02 2018 17:26:22 GMT+0800 (China Standard Time): GET /macb
+	TypeError: Cannot read property 'id' of undefined
+Wed Sep 05 2018 15:59:22 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 15:59:27 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 15:59:54 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 15:59:56 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:33 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:37 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:53 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:54 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:05:54 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:06:01 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:06:02 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:07:05 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:07:06 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 and "act" = $2 and "scene" = $3 order by "line_no" asc - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:33:51 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 16:35:18 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "play_id" = $1 - column reference "play_id" is ambiguous
+Wed Sep 05 2018 18:47:49 GMT+0800 (China Standard Time): GET /test/pericles/
+	TypeError: o.SpeechBlock is not a constructor
+Wed Sep 05 2018 18:48:29 GMT+0800 (China Standard Time): GET /test/pericles/
+	TypeError: currentScene.push is not a function
+Wed Sep 05 2018 18:49:11 GMT+0800 (China Standard Time): GET /test/pericles/
+	TypeError: Cannot read property 'push' of undefined
+Wed Sep 05 2018 18:53:04 GMT+0800 (China Standard Time): GET /test/pericles/
+	ReferenceError: currentPlay is not defined
+Wed Sep 05 2018 19:05:26 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'length' of undefined
+Wed Sep 05 2018 19:11:04 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:11:50 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:13:50 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:15:03 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:15:22 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Wed Sep 05 2018 19:16:22 GMT+0800 (China Standard Time): GET /test/pericles/?char=8115
+	TypeError: Cannot read property 'line_no' of undefined
+Thu Sep 06 2018 15:06:52 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:08:43 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:09:34 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:09:51 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:19:02 GMT+0800 (China Standard Time): GET /pericles/7/2
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:19:17 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:19:55 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:22:30 GMT+0800 (China Standard Time)
+	Error: No text found
+Thu Sep 06 2018 15:22:30 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property '0' of undefined
+Thu Sep 06 2018 15:22:44 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:24:17 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:26:13 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:26:13 GMT+0800 (China Standard Time): GET /pericles/3/17
+	TypeError: Cannot read property 'full_name' of undefined
+Thu Sep 06 2018 15:26:32 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:26:59 GMT+0800 (China Standard Time): GET /pericles/3/17
+	Error: No text found
+Thu Sep 06 2018 15:28:07 GMT+0800 (China Standard Time): GET /pericles/3/17
+	ReferenceError: err is not defined
+Thu Sep 06 2018 15:41:44 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'char' of undefined
+Thu Sep 06 2018 15:42:12 GMT+0800 (China Standard Time)
+	error: select * from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "id" asc - ORDER BY "id" is ambiguous
+Thu Sep 06 2018 15:42:48 GMT+0800 (China Standard Time)
+	error: select * from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "character_id" asc - column "character_id" does not exist
+Thu Sep 06 2018 15:52:44 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "character_id" asc - column "character_id" does not exist
+Thu Sep 06 2018 15:53:11 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "key" = $1 order by "plays"."character_id" asc - column plays.character_id does not exist
+Thu Sep 06 2018 15:59:42 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "id" = $1 and "key" = $2 order by "characters"."id" asc - column reference "id" is ambiguous
+Thu Sep 06 2018 15:59:42 GMT+0800 (China Standard Time): GET /hamlet?char=8075
+	TypeError: Cannot read property 'forEach' of undefined
+Thu Sep 06 2018 16:01:03 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "id" = $1 and "key" = $2 order by "characters"."id" asc - column reference "id" is ambiguous
+Thu Sep 06 2018 16:03:40 GMT+0800 (China Standard Time)
+	error: select "characters"."id", "characters"."name", "characters"."age", "characters"."gender", "characters"."play_id", "plays"."key", "plays"."full_name" from "characters" inner join "plays" on "plays"."id" = "characters"."play_id" where "character"."id" = $1 and "key" = $2 order by "characters"."id" asc - missing FROM-clause entry for table "character"
+Thu Sep 06 2018 16:05:03 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'char' of undefined
+Thu Sep 06 2018 16:12:17 GMT+0800 (China Standard Time)
+	error: select * from "text" inner join "plays" on "plays"."id" = "text"."play_id" inner join "characters" on "characters"."id" = "text"."character_id" where "character"."name" = $1 order by text.play_id, text.act, text.scene, text.line_no - missing FROM-clause entry for table "character"
+Thu Sep 06 2018 16:15:44 GMT+0800 (China Standard Time): GET /?char=fool
+	TypeError: Cannot read property 'push' of undefined
+Thu Sep 06 2018 16:16:11 GMT+0800 (China Standard Time): GET /?char=fool
+	TypeError: Cannot read property 'push' of undefined
+Thu Sep 06 2018 16:16:31 GMT+0800 (China Standard Time): GET /?char=king%20henry%20vi
+	TypeError: Cannot read property 'push' of undefined
+Sat Sep 08 2018 14:57:10 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene", "firstLine", "lastLine" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - column reference "play_id" is ambiguous
+Sat Sep 08 2018 15:43:10 GMT+0800 (China Standard Time)
+	error: select "play_id", "act", "scene", "firstLine", "lastLine" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - column reference "play_id" is ambiguous
+Sat Sep 08 2018 15:45:17 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "firstLine", "lastLine" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - column "firstLine" does not exist
+Sat Sep 08 2018 15:45:37 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "key" = $1 - permission denied for relation monologues
+Sat Sep 08 2018 15:46:11 GMT+0800 (China Standard Time)
+	error: select * from "monologues" - permission denied for relation monologues
+Sat Sep 08 2018 15:51:01 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "character_id" = $1 - invalid input syntax for integer: "hamlet"
+Sat Sep 08 2018 15:51:36 GMT+0800 (China Standard Time)
+	error: select "monologues"."play_id", "act", "scene", "first_line", "last_line" from "monologues" inner join "plays" on "plays"."id" = "monologues"."play_id" inner join "characters" on "characters"."id" = "monologues"."character_id" where "character"."name" = $1 - missing FROM-clause entry for table "character"
+Sun Sep 09 2018 18:43:06 GMT+0800 (China Standard Time)
+	TypeError: Cannot read property 'length' of undefined
+Sun Sep 09 2018 18:43:06 GMT+0800 (China Standard Time)
+	ReferenceError: gender is not defined

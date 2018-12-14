@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ask The Bard</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Homemade+Apple" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Ask the Bard</h1>
+		<h2>A Dead Simple Shakespeare API</h2>	
+	</header>
+	<div id="icon-container">
+		<div class="spacer"></div>
+		<div class="icon-box">
+			<h3>Clean and Simple</h3>
+			<div>
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMqSURBVHhe7Z1LqExhAMevR6G8YyGP8iiPPBbkUZTnzkoeJcRGbMReKRYkW8JOKaVslChEFkQWCiVl4VFEKI8kz/+f+W7fjDP3nPmue87I71e/Zu7pnM38unPmzPm+bzoAAADg/2C6XF6zvzdANSyTF+WPyHESSmaJvCXjEASpkH0yBLgdPSdIRayWV6XfsoZIglRMn9qjIUib0Z0gDjsMW7avbEp3gsyQ8bFYzIWyKQQpX4K0mQRpMwnSZhKkzSRIm9ljQSbLR9iyc2RTuhMEegCCtBkD5LHI4RIAAAAAAAAAAAAAAADgr+K7hDvleel7vC/lPXlETpFQIuvlWxnfto39LDdKKImDMrz4D+VZeUN+qm0LUTzvEEpglLwpG8cGTZRPZIhyVELF7JAhyF1vgGpZKUMQn+yhYvzJKwS54g05+NPaGmzZETIXT7Py21QIskvmwdjeNLsc2xuIzx+v5FCZB0HSzA0yT36U4YB1sggESbPLIJOkr9TDzgdkUQiSZtMgnk7wWIYdT8l4DnseBEkzM8hM+UKGnU7KVmIYgqT5R5AF8rUMO5yQrcYwBEmzLogv/uIT+DO5XW7NcK7sitEynsqAxfR5u5MvMq7Vlfsl9DBZL3wzCVICs1vQb0kAAAAAAAAAAAAAAAD/Kh4It1R6vsgmuUIOlFAyvsF+SX6VjXcIP0j/2EvKgAdIZJtsDNHoIQklMVK+k8elR2IvkmvlNRmCeCAEi2GWyKDaY4xXJ/WQoBBlsYSKuSxDkGneANUxVb6XjuF5Ir0llMgY6V/2XCU9M/eNdIzn0uN+i+BVsE9jy2auBeDho+HtKeidfdIvCmN708wc/Z4V5Ls8J4tGIUiamUEGywlyvtws459ifSD9qSsPgqSZGaQRX51fkOGg3TIPgqRZKIjxhWI46Lo35ECQNAsH2SLDQfe9IQeCpFkXZKzs9/tpHb56j+epF1nrhCBp1gXxCg2+1jgsPUtqg9wrn8pwgL/1HS/zYCWHNDtXcpgl41JZetEAvscqCX8d4kJnpP9LQoRv8o7cIwutwwE9Q3/pn5Pu9esvAAAAAAAAACiDjo6f8AIlTLVHhDMAAAAASUVORK5CYII=">
+			</div>
+			No Documentation Frustration
+		</div>		
+		<div class="icon-box">
+			<h3>Handy Search Tools</h3>
+			<div>
+				<img src="data:image/png;base64,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">
+			</div>
+			Filter by character or keywords
+		</div>		
+		<div class="icon-box">
+			<h3>Structured Results</h3>
+			<div>
+				<img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxMjhweCIgaGVpZ2h0PSIxMjhweCIgdmlld0JveD0iMCAwIDE2IDE2Ij4KPHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTIuMSAzLjFjMC4yIDEuMyAwLjQgMS42IDAuNCAyLjkgMCAwLjgtMS41IDEuNS0xLjUgMS41djFjMCAwIDEuNSAwLjcgMS41IDEuNSAwIDEuMy0wLjIgMS42LTAuNCAyLjktMC4zIDIuMSAwLjggMy4xIDEuOCAzLjFzMi4xIDAgMi4xIDB2LTJjMCAwLTEuOCAwLjItMS44LTEgMC0wLjkgMC4yLTAuOSAwLjQtMi45IDAuMS0wLjktMC41LTEuNi0xLjEtMi4xIDAuNi0wLjUgMS4yLTEuMSAxLjEtMi0wLjMtMi0wLjQtMi0wLjQtMi45IDAtMS4yIDEuOC0xLjEgMS44LTEuMXYtMmMwIDAtMSAwLTIuMSAwcy0yLjEgMS0xLjggMy4xeiIvPgo8cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTMuOSAzLjFjLTAuMiAxLjMtMC40IDEuNi0wLjQgMi45IDAgMC44IDEuNSAxLjUgMS41IDEuNXYxYzAgMC0xLjUgMC43LTEuNSAxLjUgMCAxLjMgMC4yIDEuNiAwLjQgMi45IDAuMyAyLjEtMC44IDMuMS0xLjggMy4xcy0yLjEgMC0yLjEgMHYtMmMwIDAgMS44IDAuMiAxLjgtMSAwLTAuOS0wLjItMC45LTAuNC0yLjktMC4xLTAuOSAwLjUtMS42IDEuMS0yLjEtMC42LTAuNS0xLjItMS4xLTEuMS0yIDAuMi0yIDAuNC0yIDAuNC0yLjkgMC0xLjItMS44LTEuMS0xLjgtMS4xdi0yYzAgMCAxIDAgMi4xIDBzMi4xIDEgMS44IDMuMXoiLz4KPC9zdmc+Cg==" />
+			</div>
+			Get easy to read JSON objects		
+		</div>
+		<div class="spacer"></div>
+	</div>
+	<div id="divider">
+		<img src="pics/DecorativeDivider.png">
+	</div>
+	<div id="description">
+		<p>
+			<i>Ask the Bard</i> is the easiest way to access the works of William Shakespeare. No bells and whistles, just the works of the great writer based on your query.  Try it out now!
+		</p>
+	</div>
+	<content>
+		<div id="documentation">
+			<h3>API Request Types</h4>
+			<h4>Text Request</h5>
+			<pre>http://www.askthebard.com/text/[play]/[act]/[scene]/[lines]</pre>
+			<p>A text request returns all text in the Complete Works of Shakespeare that match your request.</p>
+			<h5>Example Request</h6>
+			<pre>
+GET http://www.askthebard.com/text/hamlet/3/1/64
+<br>
+{
+  "URL": "/text/hamlet/3/1/64",
+  "time": "Sun Sep 09 2018 16:41:18 GMT+0800 (China Standard Time)",
+  "data": [
+    {
+      "play_name": null,
+      "play_id": 290,
+      "play_key": "hamlet",
+      "play_text": [
+        {
+          "act": 3,
+          "scene": 1,
+          "text": [
+            {
+              "character": "HAMLET",
+              "character_id": 8302,
+              "lines": [
+                {
+                  "line_no": 64,
+                  "line": "To be, or not to be: that is the question:"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+			</pre>
+			<h5>Request Parameters</h6>
+			<p>
+				Text location parameters slot directly into the URL. Filter parameters should be specified as <a href="https://en.wikipedia.org/wiki/Query_string">HTTP query parameters</a>.  Leave off all parameters to receive the entire collection.
+			</p>
+			<h6>Location Parameters</h6>
+			<ul class="parameters">
+	        	<li class="parameter"><span class="name">play</span> <span class="type">number or key</span><div class="p-desc">The play you want to receive data from.  Can be inputted as the numeric <code>play_id</code>, or the <code>play_key</code>, shorthand version of the name of the play.</div></li>
+	        	<li class="parameter"><span class="name">act</span> <span class="type">number</span><div class="p-desc">The act you want to target.</div></li>
+	        	<li class="parameter"><span class="name">scene</span> <span class="type">number</span><div class="p-desc">The scene you want to target.</div></li>
+	        	<li class="parameter"><span class="name">lines</span> <span class="type">number or range</span><div class="p-desc">The line or lines you would like to receive.  Can by inputed as a single line <code>/64</code>, or as a range of lines <code>/34-72</code>.
+        	</ul>
+        	<h6>Filter Parameters</h6>
+			<ul class="parameters">
+	        	<li class="parameter"><span class="name">char</span> <span class="type">number or name</span><div class="p-desc">Filters the lines in the text location where the character matches this value.  Can be inputted as the numeric <code>character_id</code>, or by the name of the character.</div></li>
+	        	<li class="parameter"><span class="name">search</span> <span class="type">text</span><div class="p-desc">A fuzzy search of the lines in the text location.  Returns lines ordered by how closely they match this value.</div></li>
+        	</ul>
+        	<h4>Play Request</h4>
+        	<pre>http://www.askthebard.com/play/[play]</pre>
+        	<p>A play request returns information about a single play, or a whole list.</p>
+        	<h5>Example Request</h5>
+        	<pre>
+GET http://www.askthebard.com/plays/macbeth
+<br>
+{
+  "URL":"/play/macbeth",
+  "time":"Sun Sep 09 2018 17:46:52 GMT+0800 (China Standard Time)",
+  "data":[
+    {
+      "full_name":null,
+      "id":292,
+      "key":"macbeth",
+      "year_published":null,
+      "description":null
+    }
+  ]
+}
+        	</pre>
+        	<h5>Request Parameters</h5>
+        	<p>
+        		Receive the list of plays, optionally filtered by the following parameters.
+        	</p>
+        	<ul class="parameters">
+	        	<li class="parameter"><span class="name">play</span> <span class="type">number or key</span><div class="p-desc">Returns only the information about that specific play.</div></li>
+        	</ul>
+        	<h4>Monologue Request</h4>
+        	<pre>http://www.askthebard.com/monologue/[play]</pre>
+        	<p>A monologue request returns text from the list of monologues compiled in our database.</p>
+        	<h5>Example Request</h5>
+        	<pre>
+GET http://www.askthebard.com/monologue/?char=edmund
+<br>
+{
+  "URL":"/monologue/?char=edmund",
+  "time":"Sun Sep 09 2018 18:44:46 GMT+0800 (China Standard Time)",
+  "data":[
+    {
+      "play_name":null,
+      "play_id":291,
+      "play_key":"lear",
+      "play_text":[
+        {
+          "act":1,
+          "scene":2,
+          "text":[
+            {
+              "character":"EDMUND",
+              "character_id":8089,
+              "lines":[
+                {
+                  "line_no":1,
+                  "line":"Thou, nature, art my goddess; to thy law"
+                },
+                {
+                  "line_no":2,
+                  "line":"My services are bound. Wherefore should I"
+                },
+                {
+                  "line_no":3,
+                  "line":"Stand in the plague of custom, and permit"
+                },
+                {
+                  "line_no":4,
+                  "line":"The curiosity of nations to deprive me,"
+                },
+                {
+                  "line_no":5,
+                  "line":"For that I am some twelve or fourteen moon-shines"
+                },
+                {
+                  "line_no":6,
+                  "line":"Lag of a brother? Why bastard? wherefore base?"
+                },
+                {
+                  "line_no":7,
+                  "line":"When my dimensions are as well compact,"
+                },
+                {
+                  "line_no":8,
+                  "line":"My mind as generous, and my shape as true,"
+                },
+                {
+                  "line_no":9,
+                  "line":"As honest madam's issue? Why brand they us"
+                },
+                {
+                  "line_no":10,
+                  "line":"With base? with baseness? bastardy? base, base?"
+                },
+                {
+                  "line_no":11,
+                  "line":"Who, in the lusty stealth of nature, take"
+                },
+                {
+                  "line_no":12,
+                  "line":"More composition and fierce quality"
+                },
+                {
+                  "line_no":13,
+                  "line":"Than doth, within a dull, stale, tired bed,"
+                },
+                {
+                  "line_no":14,
+                  "line":"Go to the creating a whole tribe of fops,"
+                },
+                {
+                  "line_no":15,
+                  "line":"Got 'tween asleep and wake? Well, then,"
+                },
+                {
+                  "line_no":16,
+                  "line":"Legitimate Edgar, I must have your land:"
+                },
+                {
+                  "line_no":17,
+                  "line":"Our father's love is to the bastard Edmund"
+                },
+                {
+                  "line_no":18,
+                  "line":"As to the legitimate: fine word,--legitimate!"
+                },
+                {
+                  "line_no":19,
+                  "line":"Well, my legitimate, if this letter speed,"
+                },
+                {
+                  "line_no":20,\
+                  "line":"And my invention thrive, Edmund the base"
+                },
+                {
+                  "line_no":21,
+                  "line":"Shall top the legitimate. I grow; I prosper:"
+                },
+                {
+                  "line_no":22,
+                  "line":"Now, gods, stand up for bastards!"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+        	</pre>
+        	<h5>Request Parameters</h5>
+        	<p>
+        		Use the following parameters to better target your search.
+        	</p>
+        	<ul class="parameters">
+	        	<li class="parameter"><span class="name">play</span> <span class="type">number or key</span><div class="p-desc">Returns only the monologues from the specified play.</div></li>
+	        	<li class="parameter"><span class="name">char</span> <span class="type">number or name</span><div class="p-desc">Returns only the monologues which match this character query.</div></li>
+        	</ul>
+		</div>
+	</content>
+	<footer>
+		<div>
+			By <a href="http://www.shawnrobertdoyle.com">Shawn Robert Doyle</a>
+		</div>
+	</footer>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
+
+
+<!-- 
+Top Banner
+p-desc
+Documentation
+Made by shawn / copyright etc
+
+
+ -->

@@ -144,7 +144,6 @@ const getText = async function ({ play, act, scene, first_line, last_line, char 
 				whereParams.character_id = char
 			}
 		}
-		console.log(whereParams)
 		let text
 		if(last_line) {
 			text = await pg('text')

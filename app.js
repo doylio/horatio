@@ -27,20 +27,6 @@ const play = require('./routers/play')
 const character = require('./routers/character')
 const monologue = require('./routers/monologue')
 
-/*Middleware*/
-	//Server log
-	app.use((req, res, next) => {
-		const now = new Date().toString()
-		const log = `${now}: ${req.method} ${req.url}`
-		fs.appendFile('server.log', log + '\n', (err) => {
-			if(err) {
-				console.log('Unable to append to server.log')
-			}
-		});
-		console.log(log)
-		next()
-	})
-
 //Routes
 app.use('/text', text)
 app.use('/play', play)
@@ -56,3 +42,14 @@ app.get('*', (req, res) => {
 })
 
 module.exports = app
+
+
+/*
+Still to do:
+- Add character documentation
+- Add character and play details (age, gender, etc)
+- Add monologue table and info
+- Clean up documentation
+- Add query strings to examples
+
+*/

@@ -12,10 +12,10 @@ const pg = require('knex')({
 	client: 'pg',
 	version: '10',
 	connection: {
-		host: 'localhost',
+		host: '127.0.0.1',
 		user: 'horatio',
-		password: 'GoodNightSweetPrince',
-		database: 'shakespeario'
+		password: 'GoodnightSweetPrince',
+		database: 'ShakespearIO'
 	}
 });
 
@@ -70,7 +70,7 @@ module.exports.getPlays = async function(play) {
 			}
 		}
 		let play_list = await pg('plays')
-			.select('full_name', 'id', 'key', 'year_published', 'description')
+			.select('full_name', 'id', 'key', 'year_published')
 			.where(whereParams)
 		return play_list
 	} catch(e) {
@@ -98,7 +98,7 @@ module.exports.getCharacterList = async function({ char, play }) {
 			}
 		}
 		let charList = await await pg('characters')
-			.select('characters.id', 'characters.name', 'characters.age', 'characters.gender', 'characters.play_id', 'plays.key', 'plays.full_name')
+			.select('characters.id', 'characters.name', 'characters.play_id', 'plays.key', 'plays.full_name')
 			.innerJoin('plays', 'plays.id', 'characters.play_id')
 			.where(whereParams)
 			.orderBy('characters.id')
@@ -144,7 +144,6 @@ const getText = async function ({ play, act, scene, first_line, last_line, char 
 				whereParams.character_id = char
 			}
 		}
-		console.log(whereParams)
 		let text
 		if(last_line) {
 			text = await pg('text')

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-		<h1>Ask the Bard</h1>
+		<h1>Shakespear.io</h1>
 		<h2>A Dead Simple Shakespeare API</h2>	
 	</header>
 	<div id="icon-container">
@@ -41,26 +41,26 @@
 	</div>
 	<div id="description">
 		<p>
-			<i>Ask the Bard</i> is the easiest way to access the works of William Shakespeare. No bells and whistles, just the works of the great writer based on your query.  Try it out now!
+			<i>Shakespear.io</i> is the easiest way to access the works of William Shakespeare. No bells and whistles, just the works of the great writer based on your query.  Try it out now!
 		</p>
 	</div>
 	<content>
 		<div id="documentation">
 			<h3>API Request Types</h4>
 			<h4>Text Request</h5>
-			<pre>http://www.askthebard.com/text/[play]/[act]/[scene]/[lines]</pre>
+			<pre>http://www.shawnrobertdoyle.com/p/shakespear-io/text/[play]/[act]/[scene]/[lines]</pre>
 			<p>A text request returns all text in the Complete Works of Shakespeare that match your request.</p>
 			<h5>Example Request</h6>
 			<pre>
-GET http://www.askthebard.com/text/hamlet/3/1/64
+GET http://www.shawnrobertdoyle.com/p/shakespear-io/text/hamlet/3/1/64
 <br>
 {
   "URL": "/text/hamlet/3/1/64",
-  "time": "Sun Sep 09 2018 16:41:18 GMT+0800 (China Standard Time)",
+  "time": "Tue Dec 25 2018 01:59:03 GMT+0000 (UTC)",
   "data": [
     {
-      "play_name": null,
-      "play_id": 290,
+      "play_name": "Hamlet",
+      "play_id": 30,
       "play_key": "hamlet",
       "play_text": [
         {
@@ -69,7 +69,7 @@ GET http://www.askthebard.com/text/hamlet/3/1/64
           "text": [
             {
               "character": "HAMLET",
-              "character_id": 8302,
+              "character_id": 323,
               "lines": [
                 {
                   "line_no": 64,
@@ -96,27 +96,27 @@ GET http://www.askthebard.com/text/hamlet/3/1/64
 	        	<li class="parameter"><span class="name">lines</span> <span class="type">number or range</span><div class="p-desc">The line or lines you would like to receive.  Can by inputed as a single line <code>/64</code>, or as a range of lines <code>/34-72</code>.
         	</ul>
         	<h6>Filter Parameters</h6>
+          <p>Inputted as <a href="https://en.wikipedia.org/wiki/Query_string">HTTP query parameters</a>.</p>
 			<ul class="parameters">
 	        	<li class="parameter"><span class="name">char</span> <span class="type">number or name</span><div class="p-desc">Filters the lines in the text location where the character matches this value.  Can be inputted as the numeric <code>character_id</code>, or by the name of the character.</div></li>
 	        	<li class="parameter"><span class="name">search</span> <span class="type">text</span><div class="p-desc">A fuzzy search of the lines in the text location.  Returns lines ordered by how closely they match this value.</div></li>
         	</ul>
         	<h4>Play Request</h4>
-        	<pre>http://www.askthebard.com/play/[play]</pre>
+        	<pre>http://www.shawnrobertdoyle.com/p/shakespear-io/play/[play]</pre>
         	<p>A play request returns information about a single play, or a whole list.</p>
         	<h5>Example Request</h5>
         	<pre>
-GET http://www.askthebard.com/plays/macbeth
+GET http://www.shawnrobertdoyle.com/p/shakespear-io/plays/macbeth
 <br>
 {
   "URL":"/play/macbeth",
-  "time":"Sun Sep 09 2018 17:46:52 GMT+0800 (China Standard Time)",
+  "time": "Tue Dec 25 2018 01:59:03 GMT+0000 (UTC)",
   "data":[
     {
-      "full_name":null,
-      "id":292,
+      "full_name":"Macbeth",
+      "id":33,
       "key":"macbeth",
-      "year_published":null,
-      "description":null
+      "year_published":1623
     }
   ]
 }
@@ -128,135 +128,38 @@ GET http://www.askthebard.com/plays/macbeth
         	<ul class="parameters">
 	        	<li class="parameter"><span class="name">play</span> <span class="type">number or key</span><div class="p-desc">Returns only the information about that specific play.</div></li>
         	</ul>
-        	<h4>Monologue Request</h4>
-        	<pre>http://www.askthebard.com/monologue/[play]</pre>
-        	<p>A monologue request returns text from the list of monologues compiled in our database.</p>
-        	<h5>Example Request</h5>
-        	<pre>
-GET http://www.askthebard.com/monologue/?char=edmund
+
+          <h4>Character Request</h4>
+          <pre>http://www.shawnrobertdoyle.com/p/shakespear-io/character/[play]?char=[char]</pre>
+          <p>A character request returns information about characters.</p>
+          <h5>Example Request</h5>
+          <pre>
+GET http://www.shawnrobertdoyle.com/p/shakespear-io/character/macbeth?char=duncan
 <br>
 {
-  "URL":"/monologue/?char=edmund",
-  "time":"Sun Sep 09 2018 18:44:46 GMT+0800 (China Standard Time)",
-  "data":[
+  "URL": "/p/shakespear-io/character/macbeth?char=duncan",
+  "time": "Mon Dec 24 2018 23:27:04 GMT+0000 (UTC)",
+  "data": [
     {
-      "play_name":null,
-      "play_id":291,
-      "play_key":"lear",
-      "play_text":[
-        {
-          "act":1,
-          "scene":2,
-          "text":[
-            {
-              "character":"EDMUND",
-              "character_id":8089,
-              "lines":[
-                {
-                  "line_no":1,
-                  "line":"Thou, nature, art my goddess; to thy law"
-                },
-                {
-                  "line_no":2,
-                  "line":"My services are bound. Wherefore should I"
-                },
-                {
-                  "line_no":3,
-                  "line":"Stand in the plague of custom, and permit"
-                },
-                {
-                  "line_no":4,
-                  "line":"The curiosity of nations to deprive me,"
-                },
-                {
-                  "line_no":5,
-                  "line":"For that I am some twelve or fourteen moon-shines"
-                },
-                {
-                  "line_no":6,
-                  "line":"Lag of a brother? Why bastard? wherefore base?"
-                },
-                {
-                  "line_no":7,
-                  "line":"When my dimensions are as well compact,"
-                },
-                {
-                  "line_no":8,
-                  "line":"My mind as generous, and my shape as true,"
-                },
-                {
-                  "line_no":9,
-                  "line":"As honest madam's issue? Why brand they us"
-                },
-                {
-                  "line_no":10,
-                  "line":"With base? with baseness? bastardy? base, base?"
-                },
-                {
-                  "line_no":11,
-                  "line":"Who, in the lusty stealth of nature, take"
-                },
-                {
-                  "line_no":12,
-                  "line":"More composition and fierce quality"
-                },
-                {
-                  "line_no":13,
-                  "line":"Than doth, within a dull, stale, tired bed,"
-                },
-                {
-                  "line_no":14,
-                  "line":"Go to the creating a whole tribe of fops,"
-                },
-                {
-                  "line_no":15,
-                  "line":"Got 'tween asleep and wake? Well, then,"
-                },
-                {
-                  "line_no":16,
-                  "line":"Legitimate Edgar, I must have your land:"
-                },
-                {
-                  "line_no":17,
-                  "line":"Our father's love is to the bastard Edmund"
-                },
-                {
-                  "line_no":18,
-                  "line":"As to the legitimate: fine word,--legitimate!"
-                },
-                {
-                  "line_no":19,
-                  "line":"Well, my legitimate, if this letter speed,"
-                },
-                {
-                  "line_no":20,\
-                  "line":"And my invention thrive, Edmund the base"
-                },
-                {
-                  "line_no":21,
-                  "line":"Shall top the legitimate. I grow; I prosper:"
-                },
-                {
-                  "line_no":22,
-                  "line":"Now, gods, stand up for bastards!"
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      "name": "DUNCAN",
+      "id": 80,
+      "play": {
+        "play_name": "Macbeth",
+        "play_id": 33,
+        "play_key": "macbeth"
+      }
     }
   ]
 }
-        	</pre>
-        	<h5>Request Parameters</h5>
-        	<p>
-        		Use the following parameters to better target your search.
-        	</p>
-        	<ul class="parameters">
-	        	<li class="parameter"><span class="name">play</span> <span class="type">number or key</span><div class="p-desc">Returns only the monologues from the specified play.</div></li>
-	        	<li class="parameter"><span class="name">char</span> <span class="type">number or name</span><div class="p-desc">Returns only the monologues which match this character query.</div></li>
-        	</ul>
+          </pre>
+          <h5>Request Parameters</h5>
+          <p>
+            Receive the list of characters, optionally filtered by the following parameters.  If requested without parameters, it returns a list of all characters in the canon.
+          </p>
+          <ul class="parameters">
+            <li class="parameter"><span class="name">play</span> <span class="type">number or key</span><div class="p-desc">Returns the list of characters from the specified play.</div></li>
+            <li class="parameter"><span class="name">char</span> <span class="type">number or name</span><div class="p-desc">Filters the character list for those that matches this value.  Can be inputted as the numeric <code>character_id</code>, or by the name of the character.  Inputed as a query string.</div></li>
+          </ul>
 		</div>
 	</content>
 	<footer>
@@ -267,13 +170,3 @@ GET http://www.askthebard.com/monologue/?char=edmund
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
-
-
-<!-- 
-Top Banner
-p-desc
-Documentation
-Made by shawn / copyright etc
-
-
- -->
